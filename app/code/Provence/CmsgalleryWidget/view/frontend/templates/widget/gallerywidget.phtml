@@ -1,0 +1,34 @@
+<script type="text/x-magento-init">
+{
+    "*": {
+        "fancybox": {}
+    }
+}
+</script>
+<?php if($block->getData('widgetcontent')): ?>
+    <?php $image = $this->helper('Provence\CmsgalleryWidget\Helper\Image'); ?>
+    <?php $mUrl = $this->getUrl('pub/media'); ?>
+    <?php $sub_dir = $block->getData('widgetcontent'); ?>
+    <?php $block_dir = 'pub/media/' . $block->getData('widgetcontent'); ?>
+    <?php
+        try {
+            $flags = \FilesystemIterator::SKIP_DOTS | \FilesystemIterator::UNIX_PATHS;
+            $iterator = new \FilesystemIterator($block_dir, $flags);
+
+            foreach ($iterator as $file) {
+                $fname = $file->getFileName();
+                if(preg_match("/\.jpg|\.png/i", $fname)) {
+                    $cUrl = $mUrl . $sub_dir . '/'. $file->getFileName();
+                    $cDesc = '';
+                    if(preg_match('/^\d\d\d-(.+)(\.jpg|\.png$)/', $fname)) {
+                        $cDesc = preg_replace('/(.+)NN-(.+)/', '<h6>$1</h6> $2', str_replace('+', ' ', preg_replace('/^\d\d\d-(.+)(\.jpg|\.png$)/', '$1', $fname)));
+                    }
+                    echo '<a data-fancybox="gallery" href="' . $cUrl . '" data-caption="' . $cDesc . '"><img src="' . $image->resize($fname, $sub_dir . '/', 250) .'" alt="' . strip_tags($cDesc) . '" /></a>';
+                }
+            }
+        }
+        catch (\Exception $e) {
+            throw new FileSystemException(new \Magento\Framework\Phrase($e->getMessage()), $e);
+        }
+    ?>
+<?php endif; ?>

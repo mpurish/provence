@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Provence\CmsgalleryWidget\Block\Widget\Gallerywidget" id="provence_cmsgallerywidget_gallerywidget">
+        <label>Provence CMS Gallery Widget</label>
+        <description></description>
+        <parameters>
+            <parameter name="widgetcontent" sort_order="10" visible="true" xsi:type="text">
+                <label>Folder Name</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
