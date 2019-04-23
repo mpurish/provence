@@ -1,0 +1,178 @@
+<?php
+// @codingStandardsIgnoreFile
+?>
+
+<?php $attributeId = $block->getAttributeId()?>
+<?php $isMulti = $block->getIsMultiselect()?>
+<?php $canShowQty = (is_null($block->getShowQty())) ? $this->helper('\Magento\Catalog\Helper\Data')->shouldDisplayProductCountOnLayer() : $block->getShowQty();?>
+<?php $isPrice = false; ?>
+<?php $priceMin = $priceMax = 0; ?>
+<ol class="items" id="<?= $attributeId ?>_items" >
+    <?php $i = 0; ?>
+    <?php foreach ($filterItems as $filterItem): ?>
+    <?php $requestVar = $filterItem->getFilter()->getRequestVar();?>
+    <?php $filterItemVal = is_array($filterItem->getValue()) ? implode('-', $filterItem->getValue()) : $filterItem->getValue()?>
+    <?php $dataOptPath = ($requestVar != 'cat') ? $filterItem->getFilter()->getAttributeModel()->getAttributeCode() . '='. $filterItemVal : 'cat='.$filterItemVal;?>
+        <?php $i++; ?>
+        <?php if($filterItem->getFilter()->getAttributeModel()->getAttributeCode() === 'price'): ?>
+            <?php $isPrice = true; ?>
+            <?php if ($i === 1): ?>
+                <li class="item"  style="display: none" id="wp_ln_attr_<?= $attributeId ?>_<?= /* @escapeNotVerified */ is_array($filterItem->getValue()) ? implode('-', $filterItem->getValue()) : $filterItem->getValue() ?>">
+                    <?php if ($filterItem->getCount() > 0): $filter = $filterItem->getFilter();?>
+                        <a id="price-placeholder-link"  href="<?= $block->escapeUrl($filterItem->getUrl()) ?>"
+                           data-opt-path="<?= /* @escapeNotVerified */ $dataOptPath ?>"
+                           data-is-multi="0">
+                            <?= /* @escapeNotVerified */ $filterItem->getLabel() ?>
+                            <?php if ($canShowQty): ?>
+                                <span class="count"><?= /* @escapeNotVerified */ $filterItem->getCount() ?><span class="filter-count-label">
+                            <?php if ($filterItem->getCount() == 1):?> <?= /* @escapeNotVerified */ __('item') ?><?php else:?> <?= /* @escapeNotVerified */ __('items') ?><?php endif;?></span></span>
+                            <?php endif; ?>
+                        </a>
+                    <?php else:?>
+                        <?= /* @escapeNotVerified */ $filterItem->getLabel() ?>
+                        <?php if ($canShowQty): ?>
+                            <span class="count"><?= /* @escapeNotVerified */ $filterItem->getCount() ?><span class="filter-count-label">
+                        <?php if ($filterItem->getCount() == 1):?><?= /* @escapeNotVerified */ __('item') ?><?php else:?><?= /* @escapeNotVerified */ __('items') ?><?php endif;?></span></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </li>
+                <?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                $storeManager = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+                $currencyRate = $storeManager->getStore()->getBaseCurrency()->getRate('UAH');
+                ?>
+                <?php preg_match('/\d+/', $filterItem->getValue(), $priceArr); ?>
+                <?php $priceMin = $priceArr[0]; ?>
+            <?php elseif($i === count($filterItems)): ?>
+                <?php preg_match('/\d+/', $filterItem->getValue(), $priceArr); ?>
+                <?php $priceMax = $priceArr[0]; ?>
+            <?php endif; ?>
+        <?php endif; ?>
+        <li class="item"  style="display: none" id="wp_ln_attr_<?= $attributeId ?>_<?= /* @escapeNotVerified */ is_array($filterItem->getValue()) ? implode('-', $filterItem->getValue()) : $filterItem->getValue() ?>">
+            <?php if ($filterItem->getCount() > 0): $filter = $filterItem->getFilter();?>
+                <a href="<?= $block->escapeUrl($filterItem->getUrl()) ?>"
+                   data-opt-path="<?= /* @escapeNotVerified */ $dataOptPath ?>"
+                    data-is-multi="<?= $isMulti?>">
+                    <?= /* @escapeNotVerified */ $filterItem->getLabel() ?>
+                    <?php if ($canShowQty): ?>
+                        <span class="count"><?= /* @escapeNotVerified */ $filterItem->getCount() ?><span class="filter-count-label">
+                            <?php if ($filterItem->getCount() == 1):?> <?= /* @escapeNotVerified */ __('item') ?><?php else:?> <?= /* @escapeNotVerified */ __('items') ?><?php endif;?></span></span>
+                    <?php endif; ?>
+                </a>
+            <?php else:?>
+                <?= /* @escapeNotVerified */ $filterItem->getLabel() ?>
+                <?php if ($canShowQty): ?>
+                    <span class="count"><?= /* @escapeNotVerified */ $filterItem->getCount() ?><span class="filter-count-label">
+                        <?php if ($filterItem->getCount() == 1):?><?= /* @escapeNotVerified */ __('item') ?><?php else:?><?= /* @escapeNotVerified */ __('items') ?><?php endif;?></span></span>
+                <?php endif; ?>
+            <?php endif; ?>
+        </li>
+    <?php endforeach ?>
+    <div class="wp-ln-actions">
+        <b id="loadMore_<?=$attributeId?>" class="wp-ln-action wp-ln-load-more icon-line-arrow-down"></b>
+        <b id="showLess_<?=$attributeId?>"  class="wp-ln-action wp-ln-show-less icon-line-arrow-up"></b>
+    </div>
+</ol>
+<script type="text/javascript">
+    require(['jquery', 'jquery/ui'], function($){
+        $(document).ready(function(){
+            var visibleItems = "<?= $block->getVisibleItems()?>",
+                visibleItemsStep = "<?= $block->getVisibleItemsStep()?>",
+                attrId = "<?= $attributeId?>",
+                elId = attrId + '_items',
+                ulSize = $('#' + elId + ' li').size(),
+                loadMoreId = '#loadMore_' + attrId,
+                showLessId = '#showLess_' + attrId,
+                x = parseInt(visibleItems),
+                initialX = x,
+                xStep = parseInt(visibleItemsStep);
+            if(visibleItems > 0 && visibleItems.length > 0 && visibleItems < 99 && ulSize > visibleItems) {
+                 $(loadMoreId).show();
+                 $("#"+ elId + " li:lt(" + visibleItems + ")").show();
+                 $(showLessId).hide();
+            } else {
+                $("#"+ elId + " li").show();
+                $(loadMoreId).hide();
+                $(showLessId).hide();
+            }
+
+            <?php if($isPrice): ?>
+            var priceRange = $('#price-range');
+            var cRate = <?php echo $currencyRate; ?>;
+            var slideTimeout;
+            var pricePlLnk = $('#price-placeholder-link');
+            var pRpl = pricePlLnk.data('optPath').replace(/,/g, '%2C');
+            var pMin = <?php echo $priceMin; ?>;
+            var pMax = <?php echo $priceMax; ?>;
+            var priceVal = $('#wp_ln_shopby_items [data-price]');
+            if(priceVal.length) {
+                pMin = priceVal.data('attrId').replace(/\d+_(\d+)-\d+/gm, '$1');
+                pMax = priceVal.data('attrId').replace(/.+-(\d+)/gm, '$1');
+                priceVal.find('.filter-value').text((pMin * cRate).toFixed(2) + ' грн — ' + (pMax * cRate).toFixed(2) + ' грн');
+            }
+            if (priceRange.length) {
+                pricePlLnk.attr('href', pricePlLnk.attr('href').replace(pRpl, 'price=' + $("#slider-range").slider("values", 0) + '-' + $("#slider-range").slider("values", 1))).attr('data-opt-path', 'price=' + $("#slider-range").slider("values", 0) + '-' + $("#slider-range").slider("values", 1));
+            }
+            else {
+                $('#layered-filter-block').after('<div id="price-range" class="filters--price-range"><input type="text" id="amountMin" readonly /><input type="text" id="amountMax" readonly /><div id="slider-range"></div></div>');
+                $("#slider-range").slider({
+                    range: true,
+                    min: <?php echo $priceMin; ?>,
+                    max: <?php echo $priceMax; ?>,
+                    values: [pMin, pMax],
+                    slide: function( event, ui ) {
+                        var pricePlLnk = $('#price-placeholder-link');
+                        $("#amountMin").val((ui.values[0] * cRate).toFixed(2) + ' грн');
+                        $("#amountMax").val((ui.values[1] * cRate).toFixed(2) + ' грн');
+                        pricePlLnk.attr('href', pricePlLnk.attr('href').replace(/price=\d+-\d+/gm, 'price=' + ui.values[0] + '-' + ui.values[1])).attr('data-opt-path', 'price=' + ui.values[0] + '-' + ui.values[1]).parent().attr('id', pricePlLnk.parent().attr('id').replace(/wp_ln_attr_(\d+)_.+/gm, 'wp_ln_attr_$1_' + ui.values[0] + '-' + ui.values[1]));
+                        clearTimeout(slideTimeout);
+                        slideTimeout = setTimeout(
+                            function() {
+                                pricePlLnk.trigger('click');
+                            }, 300);
+                    }
+                });
+                $("#amountMin").val(($("#slider-range").slider('values', 0) * cRate).toFixed(2) + ' грн');
+                $("#amountMax").val(($("#slider-range").slider('values', 1) * cRate).toFixed(2) + ' грн');
+                pricePlLnk.attr('href', pricePlLnk.attr('href').replace(pRpl, 'price=' + $("#slider-range").slider("values", 0) + '-' + $("#slider-range").slider("values", 1))).attr('data-opt-path', 'price=' + $("#slider-range").slider("values", 0) + '-' + $("#slider-range").slider("values", 1));
+            }
+            <?php endif; ?>
+
+            $(loadMoreId).click(function () {
+                if(xStep == 99) {
+                    $('#' + elId + ' li:lt(' + ulSize + ')').show();
+                    $(this).hide();
+                    $(showLessId).show();
+                } else {
+                    x = ( x + xStep <= ulSize) ? x + xStep : ulSize;
+                    $('#' + elId + ' li:lt(' + x + ')').show();
+                    if(ulSize == x){
+                        $(this).hide();
+                        $(showLessId).show();
+                    }else{
+                        $(showLessId).show();
+                    }
+                }
+            });
+
+            $(showLessId).click(function () {
+                if(xStep == 99) {
+                    $('#' + elId + ' li').not(':lt(' + xStep + ')').hide();
+                    $(this).hide();
+                    $(loadMoreId).show();
+                } else {
+                    x = ( x - xStep < 0 || x == ulSize) ? initialX : x - xStep;
+                    $('#' + elId + ' li').not(':lt(' + x + ')').hide();
+                    if(x <= visibleItems){
+                        $(this).hide();
+                        $(loadMoreId).show();
+                    }else{
+                        $(loadMoreId).show();
+                    }
+
+                }
+            });
+
+        })
+
+    });
+</script>

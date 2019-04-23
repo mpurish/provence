@@ -26,7 +26,7 @@ $jsClass = ($isAjaxMode) ? 'WeltPixel_LayeredNavigation/js/product/list/toolbar'
         <div class="block-title filter-title" data-count="<?= /* @escapeNotVerified */
         $filtered ?>">
             <strong data-role="title"><?= /* @escapeNotVerified */
-                __('Shop By') ?>!!!!!!</strong>
+                __('Shop By') ?></strong>
         </div>
         <div class="block-content filter-content">
             <?= $block->getChildHtml('state') ?>
@@ -50,7 +50,7 @@ $jsClass = ($isAjaxMode) ? 'WeltPixel_LayeredNavigation/js/product/list/toolbar'
                  data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": "<?php echo $activeFilters; ?>", "multipleCollapsible": true}}'>
                 <?php $wrapOptions = true; ?>
                 <?php endif; ?>
-                <div data-role="collapsible" class="filter-options-item">
+                <div data-role="collapsible" class="filter-options-item" data-code="<?php echo $filter->getData('attribute_model')->getAttributeCode(); ?>">
                     <?php $block->getChildBlock('renderer')->setAttributeId($filter) ?>
                     <div data-role="title" class="filter-options-title">
                         <?= /* @escapeNotVerified */ __($filter->getName()) ?></div>

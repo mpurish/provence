@@ -1,0 +1,63 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Alice', serif;
+}
+
+.filter-options-item {
+  &[data-code="price"] {
+    display: none;
+  }
+}
+
+.filters--price-range {
+  display: flex;
+  flex-wrap: wrap;
+
+  input[type="text"] {
+    width: 50%;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0
+  }
+
+  #amountMax {
+    text-align: right;
+  }
+
+  .ui-slider {
+    width: 100%;
+  }
+
+  .ui-widget-content {
+    background: #fff1e2;
+    border: none;
+    height: .4em;
+    margin-top: 10px;
+  }
+
+  .ui-slider-range {
+    background: #49bccc;
+    height: 100%;
+    position: absolute;
+    border-radius: 2px;
+  }
+
+  .ui-slider-handle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 14px solid #ffb3c0;
+    border-radius: 50%;
+    background: transparent;
+    border-bottom: none;
+    top: -1em;
+    margin-left: -10px;
+    cursor: pointer;
+    outline: none;
+  }
+}
