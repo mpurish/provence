@@ -42,6 +42,7 @@ $jsClass = ($isAjaxMode) ? 'WeltPixel_LayeredNavigation/js/product/list/toolbar'
             <?php $wrapOptions = false; ?>
             <?php foreach ($block->getFilters() as $k => $filter): ?>
         <?php $attributeId = (!$block->isCategoryFilter($filter)) ? $filter->getData('attribute_model')->getAttributeId() : 0; ?>
+        <?php $attributeCode = (!$block->isCategoryFilter($filter)) ? $filter->getData('attribute_model')->getAttributeCode() : 'default_categories'; ?>
         <?php if ($filter->getItemsCount()): ?>
         <?php if (!$wrapOptions): ?>
             <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?= /* @escapeNotVerified */
@@ -50,7 +51,7 @@ $jsClass = ($isAjaxMode) ? 'WeltPixel_LayeredNavigation/js/product/list/toolbar'
                  data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": "<?php echo $activeFilters; ?>", "multipleCollapsible": true}}'>
                 <?php $wrapOptions = true; ?>
                 <?php endif; ?>
-                <div data-role="collapsible" class="filter-options-item" data-code="<?php echo $filter->getData('attribute_model')->getAttributeCode(); ?>">
+                <div data-role="collapsible" class="filter-options-item" data-attrcode="<?php echo $attributeCode; ?>">
                     <?php $block->getChildBlock('renderer')->setAttributeId($filter) ?>
                     <div data-role="title" class="filter-options-title">
                         <?= /* @escapeNotVerified */ __($filter->getName()) ?></div>

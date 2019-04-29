@@ -10,11 +10,11 @@
 <ol class="items" id="<?= $attributeId ?>_items" >
     <?php $i = 0; ?>
     <?php foreach ($filterItems as $filterItem): ?>
-    <?php $requestVar = $filterItem->getFilter()->getRequestVar();?>
-    <?php $filterItemVal = is_array($filterItem->getValue()) ? implode('-', $filterItem->getValue()) : $filterItem->getValue()?>
-    <?php $dataOptPath = ($requestVar != 'cat') ? $filterItem->getFilter()->getAttributeModel()->getAttributeCode() . '='. $filterItemVal : 'cat='.$filterItemVal;?>
+        <?php $requestVar = $filterItem->getFilter()->getRequestVar();?>
+        <?php $filterItemVal = is_array($filterItem->getValue()) ? implode('-', $filterItem->getValue()) : $filterItem->getValue()?>
+        <?php $dataOptPath = ($requestVar != 'cat') ? $filterItem->getFilter()->getAttributeModel()->getAttributeCode() . '='. $filterItemVal : 'cat='.$filterItemVal;?>
         <?php $i++; ?>
-        <?php if($filterItem->getFilter()->getAttributeModel()->getAttributeCode() === 'price'): ?>
+        <?php if($requestVar === 'price'): ?>
             <?php $isPrice = true; ?>
             <?php if ($i === 1): ?>
                 <li class="item"  style="display: none" id="wp_ln_attr_<?= $attributeId ?>_<?= /* @escapeNotVerified */ is_array($filterItem->getValue()) ? implode('-', $filterItem->getValue()) : $filterItem->getValue() ?>">
@@ -49,21 +49,65 @@
         <?php endif; ?>
         <li class="item"  style="display: none" id="wp_ln_attr_<?= $attributeId ?>_<?= /* @escapeNotVerified */ is_array($filterItem->getValue()) ? implode('-', $filterItem->getValue()) : $filterItem->getValue() ?>">
             <?php if ($filterItem->getCount() > 0): $filter = $filterItem->getFilter();?>
+                <?php $tooltipHtml = '';
+                      $colourClass = 'no--colour'; ?>
+                <?php if($requestVar === 'colours'): ?>
+                            <?php switch ($filterItem->getLabel()) {
+                                case "Белый":
+                                    $tooltipHtml = '<span class="colour--tooltip">Белый, молочный, стеклянный</span>';
+                                    $colourClass = 'white';
+                                    break;
+                                case "Сиреневый":
+                                    $tooltipHtml = '<span class="colour--tooltip">Сиреневый, холодный розовый, фиолетовый, лиловый, фуксии, сливовый, баклажановый, лавандовый, индиго, пурпурный</span>';
+                                    $colourClass = 'purple';
+                                    break;
+                                case "Синий":
+                                    $tooltipHtml = '<span class="colour--tooltip">Синий, голубой, морской волны, бирюзовый, небесно-голубой, аквамарин, лазурный</span>';
+                                    $colourClass = 'blue';
+                                    break;
+                                case "Красный":
+                                    $tooltipHtml = '<span class="colour--tooltip">Красный, оранжевый, теплый розовый, алый, бордовый, терракотовый, апельсиновый, вишневый, персиковый, морковный, облепиховый</span>';
+                                    $colourClass = 'red';
+                                    break;
+                                case "Желтый":
+                                    $tooltipHtml = '<span class="colour--tooltip">Желтый, золотой, золотистый, охровый, лимонный, горчичный</span>';
+                                    $colourClass = 'yellow';
+                                    break;
+                                case "Зеленый":
+                                    $tooltipHtml = '<span class="colour--tooltip">Зеленый, травяной, оливковый, салатовый, фисташковый, лаймовый, изумрудный</span>';
+                                    $colourClass = 'green';
+                                    break;
+                                case "Черный":
+                                    $tooltipHtml = '<span class="colour--tooltip">Черный, серый</span>';
+                                    $colourClass = 'black';
+                                    break;
+                                case "Коричневый":
+                                    $tooltipHtml = '<span class="colour--tooltip">Коричневый, бежевый, кремовый, шоколадный, кофе с молоком, венге</span>';
+                                    $colourClass = 'brown';
+                                    break;
+                            } ?>
+                    <?php endif; ?>
                 <a href="<?= $block->escapeUrl($filterItem->getUrl()) ?>"
+                   class="<?php echo $colourClass ?>"
                    data-opt-path="<?= /* @escapeNotVerified */ $dataOptPath ?>"
-                    data-is-multi="<?= $isMulti?>">
+                   data-is-multi="<?= $isMulti?>">
+                    <?php echo $tooltipHtml; ?>
+                    <span class="filter--label">
                     <?= /* @escapeNotVerified */ $filterItem->getLabel() ?>
                     <?php if ($canShowQty): ?>
                         <span class="count"><?= /* @escapeNotVerified */ $filterItem->getCount() ?><span class="filter-count-label">
                             <?php if ($filterItem->getCount() == 1):?> <?= /* @escapeNotVerified */ __('item') ?><?php else:?> <?= /* @escapeNotVerified */ __('items') ?><?php endif;?></span></span>
                     <?php endif; ?>
+                    </span>
                 </a>
             <?php else:?>
-                <?= /* @escapeNotVerified */ $filterItem->getLabel() ?>
-                <?php if ($canShowQty): ?>
-                    <span class="count"><?= /* @escapeNotVerified */ $filterItem->getCount() ?><span class="filter-count-label">
-                        <?php if ($filterItem->getCount() == 1):?><?= /* @escapeNotVerified */ __('item') ?><?php else:?><?= /* @escapeNotVerified */ __('items') ?><?php endif;?></span></span>
-                <?php endif; ?>
+                <span class="filter--label">
+                    <?= /* @escapeNotVerified */ $filterItem->getLabel() ?>
+                    <?php if ($canShowQty): ?>
+                        <span class="count"><?= /* @escapeNotVerified */ $filterItem->getCount() ?><span class="filter-count-label">
+                            <?php if ($filterItem->getCount() == 1):?><?= /* @escapeNotVerified */ __('item') ?><?php else:?><?= /* @escapeNotVerified */ __('items') ?><?php endif;?></span></span>
+                    <?php endif; ?>
+                </span>
             <?php endif; ?>
         </li>
     <?php endforeach ?>
@@ -86,9 +130,9 @@
                 initialX = x,
                 xStep = parseInt(visibleItemsStep);
             if(visibleItems > 0 && visibleItems.length > 0 && visibleItems < 99 && ulSize > visibleItems) {
-                 $(loadMoreId).show();
-                 $("#"+ elId + " li:lt(" + visibleItems + ")").show();
-                 $(showLessId).hide();
+                $(loadMoreId).show();
+                $("#"+ elId + " li:lt(" + visibleItems + ")").show();
+                $(showLessId).hide();
             } else {
                 $("#"+ elId + " li").show();
                 $(loadMoreId).hide();
@@ -98,7 +142,6 @@
             <?php if($isPrice): ?>
             var priceRange = $('#price-range');
             var cRate = <?php echo $currencyRate; ?>;
-            var slideTimeout;
             var pricePlLnk = $('#price-placeholder-link');
             var pRpl = pricePlLnk.data('optPath').replace(/,/g, '%2C');
             var pMin = <?php echo $priceMin; ?>;
@@ -119,22 +162,24 @@
                     min: <?php echo $priceMin; ?>,
                     max: <?php echo $priceMax; ?>,
                     values: [pMin, pMax],
+                    stop: function () {
+                        var pricePlLnk = $('#price-placeholder-link');
+                        pricePlLnk.trigger('click');
+                    },
                     slide: function( event, ui ) {
                         var pricePlLnk = $('#price-placeholder-link');
                         $("#amountMin").val((ui.values[0] * cRate).toFixed(2) + ' грн');
                         $("#amountMax").val((ui.values[1] * cRate).toFixed(2) + ' грн');
                         pricePlLnk.attr('href', pricePlLnk.attr('href').replace(/price=\d+-\d+/gm, 'price=' + ui.values[0] + '-' + ui.values[1])).attr('data-opt-path', 'price=' + ui.values[0] + '-' + ui.values[1]).parent().attr('id', pricePlLnk.parent().attr('id').replace(/wp_ln_attr_(\d+)_.+/gm, 'wp_ln_attr_$1_' + ui.values[0] + '-' + ui.values[1]));
-                        clearTimeout(slideTimeout);
-                        slideTimeout = setTimeout(
-                            function() {
-                                pricePlLnk.trigger('click');
-                            }, 300);
                     }
                 });
                 $("#amountMin").val(($("#slider-range").slider('values', 0) * cRate).toFixed(2) + ' грн');
                 $("#amountMax").val(($("#slider-range").slider('values', 1) * cRate).toFixed(2) + ' грн');
                 pricePlLnk.attr('href', pricePlLnk.attr('href').replace(pRpl, 'price=' + $("#slider-range").slider("values", 0) + '-' + $("#slider-range").slider("values", 1))).attr('data-opt-path', 'price=' + $("#slider-range").slider("values", 0) + '-' + $("#slider-range").slider("values", 1));
             }
+            $('.filter-clear').on('click', function () {
+                $("#slider-range").slider('values', [<?php echo $priceMin; ?>, <?php echo $priceMax; ?>]);
+            });
             <?php endif; ?>
 
             $(loadMoreId).click(function () {
