@@ -1,0 +1,15 @@
+<?php $feAttributes = array('country', 'delivery_time', 'fabrics_type' , 'fabrics_width', 'embroidery_width', 'pattern', 'horizontal_rapport', 'vertical_rapport', 'pattern_orientation', 'pattern_orientation_in_roll', 'rotatable_pattern', 'style', 'gamma', 'shine', 'sides', 'washable', 'dry_clean', 'ironing',  'weightning'); ?>
+<ul>
+<?php foreach ($feAttributes as $a): ?>
+    <?php $attribute = $block->getProduct()->getResource()->getAttribute($a); ?>
+    <?php $aValue = $attribute->getFrontend()->getValue($block->getProduct()); ?>
+    <?php if($aValue): ?>
+        <li>
+        <?php echo $aName = $attribute->getStoreLabel() . ': '; ?>
+        <?php echo $aValue; ?>
+        </li>
+    <?php endif; ?>
+<?php endforeach; ?>
+</ul>
+
+
