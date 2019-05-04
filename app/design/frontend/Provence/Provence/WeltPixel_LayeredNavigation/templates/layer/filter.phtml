@@ -178,7 +178,8 @@
                 pricePlLnk.attr('href', pricePlLnk.attr('href').replace(pRpl, 'price=' + $("#slider-range").slider("values", 0) + '-' + $("#slider-range").slider("values", 1))).attr('data-opt-path', 'price=' + $("#slider-range").slider("values", 0) + '-' + $("#slider-range").slider("values", 1));
             }
             $('.filter-clear').on('click', function () {
-                $("#slider-range").slider('values', [<?php echo $priceMin; ?>, <?php echo $priceMax; ?>]);
+                $("#slider-range").slider('destroy');
+                $('#price-range').remove();
             });
             <?php endif; ?>
 
