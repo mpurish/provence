@@ -71,6 +71,7 @@
                 <div class="details-qty qty">
                     <label class="label" data-bind="i18n: 'Qty', attr: {
                            for: 'cart-item-'+item_id+'-qty'}"></label>
+                    <!-- ko if: decimalQty -->
                     <input data-bind="attr: {
                            id: 'cart-item-'+item_id+'-qty',
                            'data-cart-item': item_id,
@@ -79,7 +80,19 @@
                            }, value: qty"
                            type="number"
                            size="4"
-                           class="item-qty cart-item-qty">
+                           class="item-qty cart-item-qty qty--decimal">
+                    <!-- /ko -->
+                    <!-- ko ifnot: decimalQty -->
+                    <input data-bind="attr: {
+                           id: 'cart-item-'+item_id+'-qty',
+                           'data-cart-item': item_id,
+                           'data-item-qty': qty,
+                           'data-cart-item-id': product_sku
+                           }, value: qty"
+                           type="number"
+                           size="4"
+                           class="item-qty cart-item-qty qty--integer">
+                    <!-- /ko -->
                     <button data-bind="attr: {
                            id: 'update-cart-item-'+item_id,
                            'data-cart-item': item_id,

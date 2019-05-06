@@ -1,0 +1,5 @@
+<config>
+    <type name="Magento\Checkout\CustomerData\AbstractItem">
+        <plugin name="Provence_MinicartDecimalQty_DefaultItemPlugin" type="Provence\MinicartDecimalQty\Plugin\DefaultItemPlugin" sortOrder="10"  disabled="false" />
+    </type>
+</config>

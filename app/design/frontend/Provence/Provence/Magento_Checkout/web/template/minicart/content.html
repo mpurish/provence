@@ -37,28 +37,6 @@
                     <span translate="'Items in Cart'"/>
                 <!--/ko-->
         </div>
-
-        <each args="getRegion('subtotalContainer')" render=""/>
-        <each args="getRegion('extraInfo')" render=""/>
-
-        <div class="actions" if="getCartParam('possible_onepage_checkout')">
-            <div class="primary">
-                <button
-                        id="top-cart-btn-checkout"
-                        type="button"
-                        class="action primary checkout"
-                        data-action="close"
-                        data-bind="
-                            attr: {
-                                title: $t('Proceed to Checkout')
-                            },
-                            click: closeMinicart()
-                        "
-                        translate="'Proceed to Checkout'"
-                />
-                <div data-bind="html: getCartParam('extra_actions')"></div>
-            </div>
-        </div>
     </if>
 
     <if args="getCartParam('summary_count')">
@@ -88,6 +66,30 @@
             </div>
         </if>
     </ifnot>
+
+    <if args="getCartParam('summary_count')">
+        <each args="getRegion('subtotalContainer')" render=""/>
+        <each args="getRegion('extraInfo')" render=""/>
+
+        <div class="actions" if="getCartParam('possible_onepage_checkout')">
+            <div class="primary">
+                <button
+                        id="top-cart-btn-checkout"
+                        type="button"
+                        class="action primary checkout"
+                        data-action="close"
+                        data-bind="
+                            attr: {
+                                title: $t('Proceed to Checkout')
+                            },
+                            click: closeMinicart()
+                        "
+                        translate="'Proceed to Checkout'"
+                />
+                <div data-bind="html: getCartParam('extra_actions')"></div>
+            </div>
+        </div>
+    </if>
 
     <div class="actions" if="getCartParam('summary_count')">
         <div class="secondary">

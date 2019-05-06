@@ -11,6 +11,12 @@
             <block class="Magento\Catalog\Block\Product\View" name="attributes" template="product/view/attributes.phtml" />
         </referenceBlock>
 
+        <referenceBlock name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View" name="breadcrumbcolours" template="product/view/breadcrumbcolours.phtml" />
+        </referenceBlock>
+
         <move element="attr" destination="product.info.main" before="product.info.price" />
+        <move element="breadcrumbcolours" destination="product.info.main" before="-" />
+        <!--<move element="page.main.title" destination="product.info.main" before="-"/>-->
     </body>
 </page>

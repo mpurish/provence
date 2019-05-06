@@ -210,6 +210,7 @@ return [
         'Magento_WishlistGraphQl' => 1,
         'Mageplaza_Core' => 0,
         'Provence_CmsgalleryWidget' => 1,
+        'Provence_MinicartDecimalQty' => 1,
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
         'WeltPixel_Backend' => 1,

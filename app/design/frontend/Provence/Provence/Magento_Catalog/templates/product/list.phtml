@@ -91,7 +91,6 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                   }
                                   echo '</span>';
                               }
-
                         ?>
                     </a>
                     <div class="product details product-item-details">
@@ -102,6 +101,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                             <a class="product-item-link"
                                href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>">
                                 <?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                                <em><?= /* @escapeNotVerified */ $_product->getSku() ?></em>
                             </a>
                         </strong>
                         <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>

@@ -1,0 +1,36 @@
+<?php $_product = $block->getProduct() ;?>
+<?php $_coloursAttr = $_product->getResource()->getAttribute('colours');
+$attrTestValue = explode(', ', $_coloursAttr->getFrontend()->getValue($_product));
+if(count($attrTestValue)) {
+    echo '<span class="pdp--colours-line">';
+    foreach ($attrTestValue as $a) {
+        switch ($a) {
+            case "Белый":
+                echo '<span class="white"></span>';
+                break;
+            case "Сиреневый":
+                echo '<span class="purple"></span>';
+                break;
+            case "Синий":
+                echo '<span class="blue"></span>';
+                break;
+            case "Красный":
+                echo '<span class="red"></span>';
+                break;
+            case "Желтый":
+                echo '<span class="yellow"></span>';
+                break;
+            case "Зеленый":
+                echo '<span class="green"></span>';
+                break;
+            case "Черный":
+                echo '<span class="black"></span>';
+                break;
+            case "Коричневый":
+                echo '<span class="brown"></span>';
+                break;
+        }
+    }
+    echo '</span>';
+}
+?>

@@ -1,6 +1,6 @@
 require(['jquery'], function($){
-    $(document).ready(function(){
-        $('#product_addtocart_form').find('.qty').on('blur', function () {
+    $(document).ready(function() {
+        $(document).on('blur', '#product_addtocart_form .qty, .minicart-items .item-qty, #shopping-cart-table .input-text.qty', function () {
             var $this = $(this);
             if(isNaN($this.val())) {
                 $this.val(1);
@@ -18,6 +18,6 @@ require(['jquery'], function($){
                 }
                 $this.val(thisVal);
             }
-        });
+        })
     })
 });
