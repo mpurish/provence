@@ -12,11 +12,38 @@
         </referenceBlock>
 
         <referenceBlock name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View" name="description.colours" template="product/view/descriptioncolours.phtml" />
+        </referenceBlock>
+
+        <referenceBlock name="product.info.main">
             <block class="Magento\Catalog\Block\Product\View" name="breadcrumbcolours" template="product/view/breadcrumbcolours.phtml" />
         </referenceBlock>
 
-        <move element="attr" destination="product.info.main" before="product.info.price" />
-        <move element="breadcrumbcolours" destination="product.info.main" before="-" />
-        <!--<move element="page.main.title" destination="product.info.main" before="-"/>-->
+        <container name="pdpform" as="pdpform" label="pdpform" htmlTag="div" htmlClass="pdp--form" htmlId="pdpform" after="body" />
+
+        <move element="pdpform" destination="content" before="product.info.main"/>
+
+        <move element="product.info.price" destination="pdpform" before="-"/>
+
+        <move element="product.info" destination="pdpform" after="product.info.price"/>
+
+        <move element="product.info.addto" destination="pdpform" after="product.info"/>
+
+        <move element="product.info.social" destination="pdpform" after="-"/>
+
+        <move element="breadcrumbcolours" destination="page.main.title" before="-" />
+
+        <move element="product.info.sku" destination="page.main.title" after="-" />
+
+        <move element="product.info.description" destination="product.info.main" after="-"/>
+
+        <move element="description.colours" destination="product.info.main" after="product.info.description"/>
+
+        <move element="attributes" destination="content" before="product.info.details"/>
+
+        <referenceBlock name="product.attributes" remove="true" />
+
+        <move element="attr" destination="product.info.main" before="-" />
+
     </body>
 </page>

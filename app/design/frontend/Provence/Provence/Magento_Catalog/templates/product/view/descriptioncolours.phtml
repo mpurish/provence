@@ -1,0 +1,35 @@
+<?php $_coloursAttr = $block->getProduct()->getResource()->getAttribute('colours');
+$attrTestValue = explode(', ', $_coloursAttr->getFrontend()->getValue($block->getProduct())); ?>
+<?php if(count($attrTestValue)): ?>
+    <h3><?= /* @escapeNotVerified */ __('Colours from this fabric') ?></h3>
+    <ul class="pdp--colours">
+    <?php foreach ($attrTestValue as $a) {
+        switch ($a) {
+            case "Белый":
+                echo '<li class="white">Оттенки белого цвета</li>';
+                break;
+            case "Сиреневый":
+                echo '<li class="purple">Оттенки сиреневого и розового цвета</li>';
+                break;
+            case "Синий":
+                echo '<li class="blue">Оттенки синего и голубого цвета</li>';
+                break;
+            case "Красный":
+                echo '<li class="red">Оттенки красного и оранжевого цвета</li>';
+                break;
+            case "Желтый":
+                echo '<li class="yellow">Оттенки желтого цвета</li>';
+                break;
+            case "Зеленый":
+                echo '<li class="green">Оттенки зеленого цвета</li>';
+                break;
+            case "Черный":
+                echo '<li class="black">Оттенки серого и черного цвета</li>';
+                break;
+            case "Коричневый":
+                echo '<li class="brown">Оттенки коричневого цвета</li>';
+                break;
+        }
+    }; ?>
+    </ul>
+<?php endif; ?>

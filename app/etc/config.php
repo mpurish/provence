@@ -214,6 +214,9 @@ return [
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
         'WeltPixel_Backend' => 1,
+        'WeltPixel_AdvancedWishlist' => 1,
+        'WeltPixel_GoogleCards' => 1,
+        'WeltPixel_GoogleTagManager' => 1,
         'WeltPixel_LayeredNavigation' => 1
     ]
 ];
