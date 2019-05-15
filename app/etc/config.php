@@ -208,12 +208,18 @@ return [
         'Dotdigitalgroup_Email' => 1,
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
-        'Mageplaza_Core' => 0,
+        'Mageplaza_Core' => 1,
+        'Mageplaza_Blog' => 1,
         'Provence_CmsgalleryWidget' => 1,
         'Provence_MinicartDecimalQty' => 1,
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
         'WeltPixel_Backend' => 1,
-        'WeltPixel_LayeredNavigation' => 1
+        'WeltPixel_AdvancedWishlist' => 1,
+        'WeltPixel_GoogleCards' => 1,
+        'WeltPixel_GoogleTagManager' => 1,
+        'WeltPixel_LayeredNavigation' => 1,
+        'Yereone_Core' => 1,
+        'Yereone_Testimonials' => 1
     ]
 ];
