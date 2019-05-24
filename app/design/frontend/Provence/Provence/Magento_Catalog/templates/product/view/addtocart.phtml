@@ -28,7 +28,7 @@
                        data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
                        />
                 <?php if($isDecimal): ?>
-                    <?= /* @escapeNotVerified */ __('Ex: 1.7<br />Min qty is 1 m with 10 cm increments') ?>
+                    <div class="qty-tooltip"><?= /* @escapeNotVerified */ __('Ex: 1.7<br />Min qty is 1 m with 10 cm increments') ?></div>
                 <?php endif; ?>
             </div>
         </div>
