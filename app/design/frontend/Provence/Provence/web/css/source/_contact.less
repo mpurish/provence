@@ -1,0 +1,36 @@
+& when (@media-common = true) {
+  .form.contact {
+    width: 100% !important;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, .17) 0 5px 13px;
+    padding: 40px 15px 30px;
+    margin: 0 -15px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 20px;
+      background: repeating-linear-gradient(45deg, #1b65b9 0, #1b65b9 15px, transparent 15px, transparent 40px, #ef2569 40px, #ef2569 55px, transparent 55px, transparent 80px);
+    }
+
+    .fieldset {
+      margin: 0;
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .form.contact {
+    width: calc(~'100% - 40px') !important;
+    border-radius: 10px 10px 15px 15px;
+    padding: 40px 20px 30px;
+    margin: 0;
+
+    &:before {
+      border-radius: 10px 10px 0 0;
+    }
+  }
+}

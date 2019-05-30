@@ -1,0 +1,149 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+?>
+<?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+<?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+
+<nav class="navigation" data-action="navigation">
+    <!--ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?= /* @escapeNotVerified */ $_menu ?>
+        <?= /* @escapeNotVerified */ $block->getChildHtml() ?>
+    </ul-->
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <li role="presentation" class="li--home"><a class="main--menu-home" href="/"><?= /* @escapeNotVerified */ __('Home Page') ?></a></li>
+        <li role="presentation" class="li--catalogue"><a class="main--menu-dropdown" href="/catalogue.html"><?= /* @escapeNotVerified */ __('Fabrics Catalogue') ?></a><span class="main--menu-dropdown-mobile"></span>
+            <div class="main--menu-submenu cols--2">
+                <ul>
+                    <li>
+                        <a href="/catalogue/curtains.html"><?= /* @escapeNotVerified */ __('Fabrics for Curtains') ?></a>
+                        <ul>
+                            <li>
+                                <a href="/catalogue/curtains/portiere.html"><?= /* @escapeNotVerified */ __('Fabrics for Portiere') ?></a>
+                            </li>
+                            <li>
+                                <a href="/catalogue/curtains/tulle.html"><?= /* @escapeNotVerified */ __('Fabrics for Tulle') ?></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/catalogue/curtains.html"><?= /* @escapeNotVerified */ __('Fabrics for Furniture') ?></a>
+                        <ul>
+                            <li>
+                                <a href="/catalogue/furniture/furniture-covers.html"><?= /* @escapeNotVerified */ __('Fabrics for Furniture covers') ?></a>
+                            </li>
+                            <li>
+                                <a href="/catalogue/furniture/upholstery.html"><?= /* @escapeNotVerified */ __('Fabrics for Upholstery') ?></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/catalogue/garden.html"><?= /* @escapeNotVerified */ __('Fabrics for Garden') ?></a>
+                    </li>
+                    <li>
+                        <a href="/catalogue/tablecloth.html"><?= /* @escapeNotVerified */ __('Fabrics for Tablecloth') ?></a>
+                    </li>
+                    <li>
+                        <a href="/catalogue/pillows.html"><?= /* @escapeNotVerified */ __('Fabrics for Pillows') ?></a>
+                    </li>
+                    <li>
+                        <a href="/catalogue/accessories.html"><?= /* @escapeNotVerified */ __('Accessories for Curtains') ?></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li role="presentation" class="li--about-us"><span class="main--menu-dropdown"><?= /* @escapeNotVerified */ __('About Us') ?></span><span class="main--menu-dropdown-mobile"></span>
+            <div class="main--menu-submenu">
+                <ul>
+                    <li>
+                        <a href="/about-us/salon"><?= /* @escapeNotVerified */ __('Curtains Atelier') ?></a>
+                    </li>
+                    <li>
+                        <a href="/about-us/our-designers"><?= /* @escapeNotVerified */ __('Our Team') ?></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li role="presentation" class="li--delivery"><a href="/info/delivery"><?= /* @escapeNotVerified */ __('Shipping and Payment') ?></a></li>
+        <li role="presentation" class="li--works"><a class="main--menu-dropdown" href="/gallery-of-works"><?= /* @escapeNotVerified */ __('Our Works') ?></a><span class="main--menu-dropdown-mobile"></span>
+            <div class="main--menu-submenu blocks--2">
+                <ul class="block--1">
+                    <li>
+                        <a href="/gallery-of-works/all-products-this-year"><?= /* @escapeNotVerified */ __('This Year') ?></a>
+                    </li>
+                    <li>
+                        <a href="/gallery-of-works/all-products-prev-year"><?= /* @escapeNotVerified */ __('Previous Year') ?></a>
+                    </li>
+                    <li>
+                        <a href="/gallery-of-works/archive"><?= /* @escapeNotVerified */ __('All Works') ?></a>
+                    </li>
+                    <li>
+                        <a href="/gallery-of-works/foto-provence"><?= /* @escapeNotVerified */ __('Provence Photo') ?></a>
+                    </li>
+                </ul>
+                <ul class="block--2">
+                    <li>
+                        <a href="/design-of-curtains/sovrem-style"><?= /* @escapeNotVerified */ __('Contemporary Style') ?></a>
+                    </li>
+                    <li>
+                        <a href="/design-of-curtains/shtory-dla-verandy"><?= /* @escapeNotVerified */ __('Curtains for Terrace') ?></a>
+                    </li>
+                    <li>
+                        <a href="/design-of-curtains/shtory-save-teplo"><?= /* @escapeNotVerified */ __('Temperature Preserving Curtains') ?></a>
+                    </li>
+                    <li>
+                        <a href="/design-of-curtains/zakazat-shtory-na-kuhniu"><?= /* @escapeNotVerified */ __('Order Curtains for Kitchen') ?></a>
+                    </li>
+                    <li>
+                        <a href="/design-of-curtains/zakaz-shtory-na-small-kuhniu"><?= /* @escapeNotVerified */ __('Curtains for Small Kitchen') ?></a>
+                    </li>
+                    <li>
+                        <a href="/design-of-curtains/zakaz-shtory-na-kuhniu-s-balkonom"><?= /* @escapeNotVerified */ __('Curtains for Kitchen with a Balcony') ?></a>
+                    </li>
+                    <li>
+                        <a href="/design-of-curtains/provence-style"><?= /* @escapeNotVerified */ __('Curtains in Provence Style') ?></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li role="presentation" class="li--services"><span class="main--menu-dropdown"><?= /* @escapeNotVerified */ __('Services') ?></span><span class="main--menu-dropdown-mobile"></span>
+            <div class="main--menu-submenu">
+                <ul>
+                    <li>
+                        <a href="/about-us/salon"><?= /* @escapeNotVerified */ __('Curtains Design') ?></a>
+                    </li>
+                    <li>
+                        <a href="/about-us/our-designers"><?= /* @escapeNotVerified */ __('Sewing Price') ?></a>
+                    </li>
+                    <li>
+                        <a href="/about-us/our-designers"><?= /* @escapeNotVerified */ __('Curtains Care') ?></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li role="presentation" class="li--reviews"><a href="/about-us/feedback"><?= /* @escapeNotVerified */ __('Our Reviews') ?></a></li>
+        <li role="presentation" class="li--mobile">
+            <div class="mobile--header--phones">
+                <a class="phone--066" href="tel:+380669579090">(066) 957-90-90<span class="whatsapp"></span><span class="viber"></span></a>
+                <a class="phone--067" href="tel:+380679579090">(067) 957-90-90</a>
+                <a class="phone--044" href="tel:+380442904790">(044) 290-47-90</a>
+            </div>
+            <div class="header--links">
+                <a class="header--location" href="/info/delivery#find_us"><?= /* @escapeNotVerified */ __('Our Location') ?></a>
+                <a class="header--contact" href="/contact/"><span><?= /* @escapeNotVerified */ __('Contact Us') ?></span></a>
+            </div>
+        </li>
+    </ul>
+</nav>

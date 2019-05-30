@@ -12,6 +12,16 @@
                 <width>300</width>
                 <height>278</height>
             </image>
+            <image id="swatch_image" type="swatch_image">
+                <width>40</width>
+                <height>80</height>
+                <aspect_ratio>true</aspect_ratio>
+                <frame>false</frame>
+            </image>
+            <image id="wishlist_sidebar_block" type="thumbnail">
+                <width>75</width>
+                <height>69</height>
+            </image>
         </images>
     </media>
 </view>

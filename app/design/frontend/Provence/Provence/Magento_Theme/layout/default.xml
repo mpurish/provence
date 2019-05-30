@@ -7,5 +7,11 @@
                 <argument name="logo_img_height" xsi:type="number">300</argument>
             </arguments>
         </referenceBlock>
+        <referenceContainer name="header.panel">
+                <block class="Magento\Framework\View\Element\Template" name="header.phones" template="Magento_Theme::html/header/phones.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="header.provence.links" template="Magento_Theme::html/header/provence-links.phtml" />
+        </referenceContainer>
+        <referenceBlock name="register-link" remove="true" />
+        <!--<move element="header.provence.links" destination="header.panel" before="-"/>-->
     </body>
 </page>

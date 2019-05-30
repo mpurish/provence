@@ -1,0 +1,581 @@
+/* Colour Picker */
+.hex-color-picker-wrapper .color-block{display:inline-block;background: #fff;}.hex-color-picker-wrapper .picker-row{text-align:center;width:100%}.hex-color-picker-wrapper .picker-sidebar{float:right;font-size:0}.hex-color-picker-wrapper .color-picker-container{float:left;font-size:0}.hex-color-picker-wrapper .picker-form{width:100%;/* position:relative */}.hex-color-picker-wrapper .picker-form-wrapper{clear:both;padding-top: 8px !important;}.hex-color-picker-wrapper .picker-form .selected-color{width:100%;box-sizing:border-box}.hex-color-picker-wrapper .picker-form .submit{position:absolute;bottom: 5px;right: 5px;color: #fff;background: #3aa9e9;padding: 3px 10px;border-radius: 5px;}.hex-color-picker-wrapper .picker-form input{border:medium;border-radius:0;font-size:12px;height:30px;margin:0;padding:3px 5px}
+
+/* Constructor */
+.cms-constructor .page-main {
+	max-width: none;
+}
+.construct-wrapper {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	/* overflow: hidden; */
+	position: relative;
+	flex-direction: column;
+	max-height: 800px;
+	transition: max-height 250ms ease-in;
+}
+
+.construct-wrapper:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 24px;
+	height: 24px;
+	margin: -12px 0 0 -12px;
+	border: 4px solid #1979c3;
+	border-right-color: transparent;
+	border-radius: 50%;
+	opacity: 0;
+	transition: opacity 400ms ease-in;
+}
+
+.construct-wrapper > div {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 400ms ease-in;
+}
+
+.construct-images {
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	position: absolute;
+}
+
+.construct-controls {
+	width: 100%;
+	min-width: 260px;
+}
+
+.construct-scene-wrapper {
+	align-self: flex-start;
+	margin: 0;
+	overflow: hidden;
+}
+
+.construct-scene {
+	position: relative;
+	min-width: 1250px;
+	min-height: 1250px;
+	background: url('../images/constructor/rendering.jpg') no-repeat 0 0;
+	background-size: 100% 100%;
+	transition: background 400ms ease-in;
+	transform-origin: top left;
+	margin: 0;
+}
+
+.construct-scene div {
+	position: absolute;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: 100% auto;
+	background-blend-mode: multiply;
+	-webkit-mask-position: 0 0;
+	mask-position: 0 0;
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% auto;
+	mask-size: 100% auto;
+}
+
+.wall {
+	top: 0;
+	left: 0;
+	width: 1250px;
+	height: 1084px;
+	background-image: url('../images/constructor/wall-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/wall-mask.png);
+	mask-image: url(../images/constructor/wall-mask.png);
+}
+
+.curtains {
+	top: 62px;
+	left: 137px;
+	width: 965px;
+	height: 1061px;
+	background-image: url('../images/constructor/curtains-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/curtains-mask.png);
+	mask-image: url(../images/constructor/curtains-mask.png);
+}
+
+.lampshade {
+	bottom: 818px;
+	right: 0;
+	width: 170px;
+	height: 179px;
+	background-image: url('../images/constructor/lampshade-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/lampshade-mask.png);
+	mask-image: url(../images/constructor/lampshade-mask.png);
+}
+
+.lampshade-inner {
+	bottom: 810px;
+	right: 0;
+	width: 168px;
+	height: 183px;
+	background-image: url('../images/constructor/lampshade-inner-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/lampshade-inner-mask.png);
+	mask-image: url(../images/constructor/lampshade-mask.png);
+}
+
+.sofa {
+	bottom: 0;
+	right: 0;
+	width: 306px;
+	height: 331px;
+	background-image: url('../images/constructor/sofa-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/sofa-mask.png);
+	mask-image: url(../images/constructor/sofa-mask.png);
+}
+
+.blanket {
+	bottom: 195px;
+	right: 0;
+	width: 262px;
+	height: 150px;
+	background-image: url('../images/constructor/blanket-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/blanket-mask.png);
+	mask-image: url(../images/constructor/blanket-mask.png);
+}
+
+.pillow-top {
+	bottom: 8px;
+	/*right: 315px;*/
+	/*width: 281px;*/
+	/*height: 115px;*/
+	/* background-image: url('../images/constructor/pillow-top-bg.jpg'); */
+	/* -webkit-mask-image: url(../images/constructor/pillow-top-mask.png); */
+	/*mask-image: url(../images/constructor/pillow-top-mask.png);*/
+	background-image: url('../images/constructor/pillow-top-skew-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/pillow-top-skew-mask.png);
+	mask-image: url(../images/constructor/pillow-top-skew-mask.png);
+	transform: skewX(-16deg);
+	width: 314px;
+	height: 115px;
+	right: 298px;
+}
+
+.pillow-bottom {
+	bottom: 8px;
+	right: 315px;
+	width: 281px;
+	height: 115px;
+	background-image: url('../images/constructor/pillow-back-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/pillow-back-mask.png);
+	mask-image: url(../images/constructor/pillow-back-mask.png);
+	background-position: 100% 100%;
+}
+
+.pillow-small {
+	bottom: 257px;
+	right: 0;
+	width: 16px;
+	height: 65px;
+	background-image: url('../images/constructor/small-pillow-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/small-pillow-mask.png);
+	mask-image: url(../images/constructor/small-pillow-mask.png);
+}
+
+.ficus {
+	position: absolute;
+	left: 0;
+	bottom: 30px;
+	width: 257px;
+	height: 741px;
+	background: url('../images/constructor/ficus.png') no-repeat 0 0;
+	background-size: 100% 100%;
+}
+
+.construct-scene .pillow-bottom,
+.construct-scene .pillow-small{
+	background-position: 100% 100%;
+}
+
+.loading > div {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.loading:before {
+	opacity: 1;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	100% {
+		transform:rotate(360deg);
+	}
+}
+
+.construct-controls ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.construct-controls li {
+	position: relative;
+	margin: 0 0 30px;
+	width: calc((100% - 60px) / 4);
+	max-width: 72px;
+}
+
+.construct--control {
+	color: #3BA9EA;
+	position: relative;
+	cursor: pointer;
+}
+
+.construct--control svg {
+	width: 63.165%;
+	height: auto;
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
+	transform: translateX(-65%);
+	fill: #3BA9EA;
+}
+
+.control--wall svg {
+	width: calc(100% - 28px);
+	left: 7px;
+	transform: translateX(0);
+}
+
+.control--lamp svg {
+	width: 49.135%;
+}
+
+.control--blanket svg {
+	width: 60%;
+}
+
+input[type="text"].constructor--color-picker-input {
+	font-size: 16px;
+	width: 22px;
+	height: 22px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-left: 5px;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 0 2px 0.5px rgba(21, 21, 21, 0.05), 0 1px 5px 0 rgba(21, 21, 21, 0.15);
+	text-indent: -10000px;
+	position: absolute;
+	right: -30px;
+}
+
+input[type="text"].constructor--color-picker-input:focus,
+input[type="color"].constructor--color-picker-input-mobile:focus {
+	box-shadow: none;
+}
+
+input[type="color"].constructor--color-picker-input-mobile {
+	text-indent: -10000px;
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	font-size: 16px;
+	width: calc(100% + 5px);
+	height: calc(100% + 8px);
+	border: none;
+	vertical-align: middle;
+	cursor: pointer;
+	outline: none;
+	z-index: 0;
+	background: #fff;
+	border-color: #fff;
+}
+
+.touch--screen .constructor--color-picker-input {
+	display: none;
+}
+
+.touch--screen .construct-controls .colour--select:before {
+	content: '';
+	z-index: 2;
+	position: absolute;
+	right: 1px;
+	top: 1px;
+	width: 18px;
+	height: 18px;
+	border: 3px solid #ffffff;
+	border-radius: 50%;
+	pointer-events: none;
+	-webkit-touch-callout: none;
+}
+
+.touch--screen .construct-controls .colour--select:after {
+	 /*content: ''; */
+	z-index: 1;
+	position: absolute;
+	right: -1px;
+	top: -1px;
+	width: 22px;
+	height: 22px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 0 2px 0.5px rgba(21, 21, 21, 0.05), 0 1px 5px 0 rgba(21, 21, 21, 0.15);
+	pointer-events: none;
+	-webkit-touch-callout: none;
+}
+
+.touch--screen .construct--control {
+	font-size: 0;
+	border-radius: 5px;
+	background: radial-gradient(circle at calc(100% - 13px) 13px, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 10px, rgba(255,255,255,1) 11px);
+	display: block;
+	z-index: 1;
+	pointer-events: none;
+	-webkit-touch-callout: none;
+}
+
+.touch--screen .construct--control:before {
+	content: '';
+	position: relative;
+	display: block;
+	padding: 100% 0 0;
+	box-shadow: 0 0 2px 0.5px rgba(21, 21, 21, 0.05), 0 1px 5px 0 rgba(21, 21, 21, 0.15);
+	border-radius: 5px;
+	z-index: 1;
+}
+
+.touch--screen .construct--control:after {
+	content: '';
+	position: absolute;
+	top: -3px;
+	right: -3px;
+	bottom: -3px;
+	left: -3px;
+	border-radius: 5px;
+	z-index: 0;
+	border: 5px solid #fff;
+}
+
+.touch--screen-not .constructor--color-picker-input-mobile {
+	display: none;
+}
+.construct-controls .fabrics--select {
+	width: 100%;
+	margin-bottom: 20px;
+	max-width: none;
+}
+
+.fabrics--select .ss-main .ss-content .ss-list .ss-option {
+	background-repeat: repeat-y;
+	background-size: 30px auto;
+	padding-left: 35px;
+	margin: 2px 2px;
+}
+
+.fabrics--select .ss-deselect {
+	width: 20px;
+	position: relative;
+}
+
+.fabrics--select .deselect {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 50%;
+	left: 0;
+	transform: translate(0, -50%);
+}
+
+.fabrics--select .deselect:after,
+.fabrics--select .deselect:before {
+	content: '';
+	width: 2px;
+	height: 12px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%) rotate(45deg) scale(.9);
+	background: #aaa;
+}
+
+.fabrics--select .deselect:after {
+	transform: translate(-50%, -50%) rotate(-45deg) scale(.9);
+}
+
+.jQWCP-wWidget {
+	background: #fff;
+	box-shadow: 0 0 2px 0.5px rgba(21, 21, 21, 0.05), 0 1px 5px 0 rgba(21, 21, 21, 0.15);
+	border: none;
+	margin-top: -31px;
+	margin-left: -9px;
+	width: 210px !important;
+}
+
+.jQWCP-slider-wrapper {
+	width: 16px;
+	margin: 0;
+}
+
+.jQWCP-slider {
+	border: none;
+}
+
+.jQWCP-scursor {
+	height: 18px;
+	left: 1px;
+	right: 1px;
+	box-sizing: border-box;
+	border-width: 4px;
+	border-radius: 50%;
+	box-shadow: none;
+}
+
+
+.jQWCP-wPreview {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.jQWCP-wPreview canvas {
+	border: none;
+	margin: 0;
+}
+
+.jQWCP-wWheelCursor {
+	border-width: 4px;
+	box-shadow: none;
+	margin: -10px;
+	width: 10px;
+	height: 10px;
+}
+
+.jQWCP-wWidget:after {
+	content: '';
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	width: 180px;
+	height: 180px;
+	-webkit-touch-callout: none;
+	pointer-events: none;
+}
+
+.touch--screen-not .construct--control {
+	margin-left: 70px;
+	border-bottom: 1px dotted;
+}
+
+.touch--screen-not .construct-controls li {
+	margin: 0 auto 3em 0;
+	width: auto;
+	max-width: none;
+}
+
+.touch--screen-not .construct--control svg {
+	width: 50px;
+	left: -60px;
+	bottom: 0;
+	transform: none;
+}
+
+.touch--screen-not .control--lamp svg {
+	width: 44px;
+	left: -55px;
+}
+
+.touch--screen-not .control--blanket svg {
+	width: 45px;
+	left: -51px;
+	bottom: -5px;
+}
+
+.touch--screen-not .construct-controls .fabrics--select {
+	width: 190px;
+	padding-left: 70px;
+	margin-bottom: 3em;
+}
+
+.touch--screen-not .construct-controls {
+	margin-right: 20px;
+	width: auto;
+}
+
+.touch--screen-not .construct-controls li {
+	margin: 0 auto 3em 0;
+	width: auto;
+}
+
+.touch--screen-not .construct-controls ul {
+	flex-direction: column;
+}
+
+@media (min-width: 375px) {
+	.touch--screen .construct-controls ul {
+		justify-content: center;
+	}
+
+	.touch--screen .colour--select {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.touch--screen .fabrics--select + .colour--select {
+		margin-left: 0;
+	}
+
+	.touch--screen .colour--select:last-child {
+		margin-right: 0;
+	}
+}
+
+@media (min-width: 992px) {
+	.construct-wrapper {
+		flex-direction: row;
+		max-height: none;
+	}
+
+	.construct-controls {
+		margin-right: 20px;
+	}
+
+	.construct-controls ul {
+		padding-right: 20px;
+	}
+
+	.construct-scene-wrapper {
+		align-self: flex-end;
+	}
+
+	.construct-controls li {
+		margin-bottom: 20px;
+		width: 72px;
+	}
+
+	.touch--screen .construct-controls ul {
+		justify-content: flex-start;
+	}
+
+	.touch--screen .colour--select {
+		margin-left: 0;
+		margin-right: 20px;
+	}
+}
+
+@media (min-width: 1280px) {
+	.touch--screen-not .construct-controls {
+		/* margin-right: auto; */
+	}
+}

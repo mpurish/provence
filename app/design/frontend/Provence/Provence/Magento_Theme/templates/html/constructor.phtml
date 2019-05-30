@@ -1,0 +1,202 @@
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "colorpicker": {},
+        "constructor": {}
+    }
+}
+</script>
+
+<div class="construct-wrapper loading">
+    <div class="construct-images">
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/ficus.png'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/rendering.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/wall-bg.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/curtains-bg.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/lampshade-bg.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/lampshade-inner-bg.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/sofa-bg.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/blanket-bg.jpg'); ?>" />
+<!--        <img src="--><?php //echo $this->getViewFileUrl('images/constructor/pillow-top-bg.jpg'); ?><!--" />-->
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/pillow-top-skew-bg.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/pillow-back-bg.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/small-pillow-bg.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/wall-mask.png'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/curtains-mask.png'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/lampshade-mask.png'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/lampshade-inner-mask.png'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/sofa-mask.png'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/blanket-mask.png'); ?>" />
+<!--        <img src="--><?php //echo $this->getViewFileUrl('images/constructor/pillow-top-mask.png'); ?><!--" />-->
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/pillow-top-skew-mask.png'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/pillow-back-mask.png'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/small-pillow-mask.png'); ?>" />
+    </div>
+
+    <div class="construct-controls">
+        <ul>
+            <li class="fabrics--select">
+                <select id="fabrics-select">
+                    <option data-placeholder="true">Ткань</option>
+                    <?php $productCollection = $block->getProductCollection();
+                    foreach ($productCollection as $product) {
+                        $image = $block->getImage($product, 'swatch_image');
+                        echo '<option style="background-image: url(' . $image->getImageUrl() . ')" value="' . $product->getSku() . '" data-img="' . $block->getMediaBaseUrl() . 'catalog/product'. $product->getData('swatch_image') . '" data-scale="' . $product->getData('room_constructor') . '">' . $product->getSku() . ' ' . $product->getName() . '</option>';
+                    }
+                    ?>
+                </select>
+            </li>
+            <li class="colour--select">
+                <span class="construct--control control--wall" data-obj="wall">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="207 -101.6 503.6 503.6" style="enable-background:new 207 -101.6 503.6 503.6;" xml:space="preserve">
+                        <path d="M668.6,158.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S673.7,158.3,668.6,158.3z"/>
+                        <path d="M693.8,133.2c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S698.9,133.2,693.8,133.2z"/>
+                        <path d="M643.5,133.2c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S648.5,133.2,643.5,133.2z"/>
+                        <path d="M618.3,158.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S623.3,158.3,618.3,158.3z"/>
+                        <path d="M567.9,158.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S573,158.3,567.9,158.3z"/>
+                        <path d="M593.1,133.2c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S598.1,133.2,593.1,133.2z"/>
+                        <path d="M542.7,133.2c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S547.8,133.2,542.7,133.2z"/>
+                        <path d="M517.6,158.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S522.6,158.3,517.6,158.3z"/>
+                        <path d="M467.2,158.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S472.2,158.3,467.2,158.3z"/>
+                        <path d="M492.4,133.2c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S497.4,133.2,492.4,133.2z"/>
+                        <path d="M668.6,108c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4C677,111.3,673.7,108,668.6,108z"/>
+                        <path d="M668.6,57.6c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4S677,71,677,66S673.7,57.6,668.6,57.6z"/>
+                        <path d="M693.8,82.8c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S698.9,82.8,693.8,82.8z"/>
+                        <path d="M643.5,82.8c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S648.5,82.8,643.5,82.8z"/>
+                        <path d="M618.3,108c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S623.3,108,618.3,108z"/>
+                        <path d="M567.9,108c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S573,108,567.9,108z"/>
+                        <path d="M618.3,57.6c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S623.3,57.6,618.3,57.6z"/>
+                        <path d="M567.9,57.6c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S573,57.6,567.9,57.6z"/>
+                        <path d="M593.1,82.8c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S598.1,82.8,593.1,82.8z"/>
+                        <path d="M542.7,82.8c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S547.8,82.8,542.7,82.8z"/>
+                        <path d="M517.6,108c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4C526,111.3,522.6,108,517.6,108z"/>
+                        <path d="M467.2,108c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4C475.6,111.3,472.2,108,467.2,108z"/>
+                        <path d="M517.6,57.6c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4S526,71,526,66S522.6,57.6,517.6,57.6z"/>
+                        <path d="M467.2,57.6c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S472.2,57.6,467.2,57.6z"/>
+                        <path d="M492.4,82.8c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S497.4,82.8,492.4,82.8z"/>
+                        <path d="M668.6,7.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S673.7,7.3,668.6,7.3z"/>
+                        <path d="M693.8,32.4c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S698.9,32.4,693.8,32.4z"/>
+                        <path d="M643.5,32.4c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S648.5,32.4,643.5,32.4z"/>
+                        <path d="M693.8-17.9c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S698.9-17.9,693.8-17.9z"/>
+                        <path d="M643.5-17.9c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S648.5-17.9,643.5-17.9z"/>
+                        <path d="M618.3,7.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S623.3,7.3,618.3,7.3z"/>
+                        <path d="M567.9,7.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S573,7.3,567.9,7.3z"/>
+                        <path d="M593.1,32.4c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S598.1,32.4,593.1,32.4z"/>
+                        <path d="M542.7,32.4c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S547.8,32.4,542.7,32.4z"/>
+                        <path d="M593.1-17.9c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S598.1-17.9,593.1-17.9z"/>
+                        <path d="M542.7-17.9c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S547.8-17.9,542.7-17.9z"/>
+                        <path d="M517.6,7.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S522.6,7.3,517.6,7.3z"/>
+                        <path d="M467.2,7.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S472.2,7.3,467.2,7.3z"/>
+                        <path d="M492.4,32.4c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S497.4,32.4,492.4,32.4z"/>
+                        <path d="M492.4-17.9c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S497.4-17.9,492.4-17.9z"/>
+                        <path d="M668.6-43.1c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S673.7-43.1,668.6-43.1z"/>
+                        <path d="M668.6-93.5c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4C677-90.1,673.7-93.5,668.6-93.5z"/>
+                        <path d="M693.8-68.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S698.9-68.3,693.8-68.3z"/>
+                        <path d="M643.5-68.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S648.5-68.3,643.5-68.3z"/>
+                        <path d="M618.3-43.1c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S623.3-43.1,618.3-43.1z"/>
+                        <path d="M567.9-43.1c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S573-43.1,567.9-43.1z"/>
+                        <path d="M618.3-93.5c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4C626.7-90.1,623.3-93.5,618.3-93.5z"/>
+                        <path d="M567.9-93.5c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4C576.3-90.1,573-93.5,567.9-93.5z"/>
+                        <path d="M593.1-68.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S598.1-68.3,593.1-68.3z"/>
+                        <path d="M542.7-68.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S547.8-68.3,542.7-68.3z"/>
+                        <path d="M517.6-43.1c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S522.6-43.1,517.6-43.1z"/>
+                        <path d="M467.2-43.1c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S472.2-43.1,467.2-43.1z"/>
+                        <path d="M517.6-93.5c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4C526-90.1,522.6-93.5,517.6-93.5z"/>
+                        <path d="M467.2-93.5c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4C475.6-90.1,472.2-93.5,467.2-93.5z"/>
+                        <path d="M492.4-68.3c-4.2,0-8.4,4.2-8.4,8.4c0,5,3.4,8.4,8.4,8.4s8.4-3.4,8.4-8.4S497.4-68.3,492.4-68.3z"/>
+                        <path d="M710.6-93.2c0-5-3.4-8.4-8.4-8.4H458.8l0,0H215.4c-5,0-8.4,3.4-8.4,8.4v486.8c0,5,3.4,8.4,8.4,8.4h243.4
+                            c5,0,8.4-3.4,8.4-8.4V292.9h201.4c23.5,0,42-26,42-58.8c0,0,0,0,0,0l0,0L710.6-93.2L710.6-93.2z M467.2-84.8h226.6v271.7
+                            c-2.3-2.4-4.8-4.4-7.4-6.1c-0.4-0.2-0.8-0.5-1.2-0.7c-0.2-0.1-0.5-0.3-0.7-0.4c-0.3-0.2-0.7-0.4-1-0.5c-0.3-0.2-0.6-0.3-0.9-0.5
+                            c-0.2-0.1-0.5-0.2-0.7-0.4c-0.4-0.2-0.8-0.3-1.1-0.5c-0.2-0.1-0.3-0.1-0.5-0.2c-2-0.8-4-1.3-6.1-1.7c-0.2,0-0.4-0.1-0.6-0.1
+                            c-0.4-0.1-0.7-0.1-1.1-0.2c-0.3,0-0.7-0.1-1-0.1c-0.3,0-0.6-0.1-0.9-0.1c-0.6,0-1.3-0.1-1.9-0.1h0H467.2V-84.8z M425.2,276.1
+                            c-8,0-15.4-6.8-20-17.1c-3.2-7-5.1-15.7-5.1-24.9c0-5,0.6-9.8,1.6-14.2c3.6-16,13.1-27.7,23.6-27.7h33.6c0,0,0,0,0,0h180.3
+                            c-7.7,10.6-12.4,25.4-12.4,42c0,16.5,4.7,31.3,12.4,42L425.2,276.1L425.2,276.1z M450.4,385.2H223.8v-470h226.6v260.2h-25.2h0
+                            c-23.5,0-42,26-42,58.8s18.5,58.8,42,58.8h0h25.2L450.4,385.2L450.4,385.2z M668.6,276.1c-8,0-15.4-6.8-20-17.1
+                            c-3.2-7-5.1-15.7-5.1-24.9c0-5,0.6-9.8,1.6-14.2c3.6-16,13.1-27.7,23.6-27.7h0c9.1,0,17.4,8.8,21.8,21.6c2.1,6.1,3.3,13.1,3.3,20.4
+                            C693.8,256.8,682.1,276.1,668.6,276.1z"/>
+                    </svg>
+                    Стена
+                </span>
+                <input type="text" class="constructor--color-picker-input" id="color-picker-wall" data-wcp-format="css" data-wcp-preview="true" />
+                <input type="color" class="constructor--color-picker-input-mobile" value="#ffffff" />
+            </li>
+            <li class="colour--select">
+                <span class="construct--control control--sofa" data-obj="sofa">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 480.1 256" style="enable-background:new 0 0 480.1 256;" xml:space="preserve">
+                        <path d="M437.3,53.3c-7.5,0-14.8,2.1-21.3,6v-6C416,17.9,398.1,0,362.7,0H117.3C81.9,0,64,17.9,64,53.3
+                            v6c-6.5-3.8-13.9-5.9-21.3-6C19.1,53.3,0,72.4,0,96v85.3C0,204.9,19.1,224,42.7,224H64v21.3c0,5.9,1.8,10.7,7.7,10.7
+                            s8.7-4.8,8.7-10.7V224h319.3v21.3c0,5.9,2.8,10.7,8.7,10.7s7.7-4.8,7.7-10.7V224h21.2c23.6,0,42.8-19.1,42.8-42.7V96
+                            C480,72.4,460.9,53.3,437.3,53.3z M80.3,53.3c0-23.6,13.3-37,37-37h245.3c23.6,0,37,13.4,37,37V133H80.3V53.3z M463.7,181.3
+                            c0,11.8-14.7,26.3-26.4,26.3H42.7c-11.7,0-26.3-14.6-26.3-26.3V96c0-11.7,14.6-26.3,26.3-26.3S64,84.3,64,96v53.3h352V96
+                            c0-11.7,9.6-26.3,21.3-26.3s26.3,14.6,26.3,26.3L463.7,181.3L463.7,181.3z"/>
+                    </svg>
+                    Диван
+                </span>
+                <input type="text" class="constructor--color-picker-input" id="color-picker-sofa" data-wcp-format="css" data-wcp-preview="true" />
+                <input type="color" class="constructor--color-picker-input-mobile" value="#ffffff" />
+            </li>
+            <li class="colour--select">
+                <span class="construct--control control--lamp" data-obj="lampshade">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 490.667 490.667" style="enable-background:new 0 0 490.667 490.667;" xml:space="preserve">
+                        <path d="M362.341,178.773L319.674,8.107C318.501,3.413,314.234,0,309.327,0h-128c-4.907,0-9.173,3.307-10.347,8.107
+                            l-42.667,170.667c-1.387,5.76,2.027,11.52,7.787,12.907c0.853,0.213,1.707,0.32,2.56,0.32h96v277.333h-53.013
+                            c-5.333,0-10.133,3.84-10.88,9.067c-0.96,6.613,4.16,12.267,10.56,12.267h127.68c5.333,0,10.133-3.84,10.88-9.067
+                            c0.96-6.613-4.16-12.267-10.56-12.267h-53.333V192h96c5.867,0,10.667-4.8,10.667-10.667
+                            C362.661,180.48,362.554,179.627,362.341,178.773z M152.314,170.667l37.333-149.333h111.36l37.333,149.333H152.314z"/>
+                    </svg>
+                    Торшер
+                </span>
+                <input type="text" class="constructor--color-picker-input" id="color-picker-lamp" data-wcp-format="css" data-wcp-preview="true" />
+                <input type="color" class="constructor--color-picker-input-mobile" value="#ffffff" />
+            </li>
+            <li class="colour--select">
+                <span class="construct--control control--blanket" data-obj="blanket">
+                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="211 -106 512 512" style="enable-background:new 211 -106 512 512;" xml:space="preserve">
+                        <path d="M606.7-16.8h-96.3v-30.6c0-10.6-7.5-19.4-17.4-21.5v-29.5c0-4.1-3.4-7.5-7.5-7.5c-4.1,0-7.5,3.4-7.5,7.5v29h-16.2v-29
+                        c0-4.1-3.4-7.5-7.5-7.5c-4.1,0-7.5,3.4-7.5,7.5v29h-16.2v-29c0-4.1-3.4-7.5-7.5-7.5c-4.1,0-7.5,3.4-7.5,7.5v29h-16.2v-29
+                        c0-4.1-3.4-7.5-7.5-7.5c-4.1,0-7.5,3.4-7.5,7.5v29h-16.2v-29c0-4.1-3.4-7.5-7.5-7.5c-4.1,0-7.5,3.4-7.5,7.5v29H337v-29
+                        c0-4.1-3.4-7.5-7.5-7.5c-4.1,0-7.5,3.4-7.5,7.5v29h-16.2v-29c0-4.1-3.4-7.5-7.5-7.5c-4.1,0-7.5,3.4-7.5,7.5v29h-16.2v-29
+                        c0-4.1-3.4-7.5-7.5-7.5c-4.1,0-7.5,3.4-7.5,7.5v29h-16.2v-29c0-4.1-3.4-7.5-7.5-7.5c-4.1,0-7.5,3.4-7.5,7.5v29.6
+                        c-9.9,2.3-17.4,11.3-17.4,21.9v321.6c0,23.2,18.9,42.2,42.2,42.2h0h0h34.3c0.1,0,0.3,0,0.4,0h61.9v30.6c0,10.5,7.4,19.3,17.2,21.5
+                        v29.6c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-29h16.2v29c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-29h16.2v29c0,4.1,3.4,7.5,7.5,7.5
+                        s7.5-3.4,7.5-7.5v-29h16.2v29c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-29h16.2v29c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5v-29h16.2
+                        v29c0,4.1,3.4,7.5,7.5,7.5c4.1,0,7.5-3.4,7.5-7.5v-29h16.2v29c0,4.1,3.4,7.5,7.5,7.5c4.1,0,7.5-3.4,7.5-7.5v-29h16.2v29
+                        c0,4.1,3.4,7.5,7.5,7.5c4.1,0,7.5-3.4,7.5-7.5v-29h16.2v29c0,4.1,3.4,7.5,7.5,7.5c4.1,0,7.5-3.4,7.5-7.5v-29.6
+                        c9.8-2.2,17.2-11,17.2-21.5V25.4C648.9,2.1,630-16.8,606.7-16.8z M226-46.9c0-4.2,3.4-7.6,7.6-7.6h254.9c3.9,0,7,3.1,7,7v30.6H322.6
+                        c-0.1,0-0.2,0-0.2,0c0,0,0,0-0.1,0c-10.9,0.1-20.9,4.4-28.4,11.3H226V-46.9z M280.4,274.6c0,15-12.2,27.2-27.2,27.2c0,0,0,0,0,0
+                        c0,0,0,0,0,0c-15,0-27.2-12.2-27.2-27.2v-9.3h54.4V274.6z M280.4,250.3H226v-49h54.4V250.3z M280.4,186.4H226v-49h54.4V186.4z
+                         M280.4,122.4H226v-49h54.4V122.4z M280.4,25.4v33.1H226v-49h57.5C281.5,14.4,280.4,19.7,280.4,25.4z M349.8,301.8h-61.4
+                        c-0.1,0-0.3,0-0.4,0h-2.4c6.2-7.3,9.9-16.8,9.9-27.2V25.4c0-15,12.2-27.2,27.2-27.2c0,0,0.1,0,0.1,0c14.9,0.1,27,12.2,27,27.2V301.8
+                        z M633.9,347.5c0,3.9-3.1,7-7,7H371.8c-3.9,0-7-3.1-7-7v-41.9h269.1V347.5z M633.9,290.5H364.8v-49h269.1V290.5z M633.9,226.6H364.8
+                        v-49h269.1V226.6z M633.9,162.6H364.8v-49h269.1V162.6z M633.9,98.6H364.8v-49h269.1V98.6z M633.9,34.7H364.8v-9.3
+                        c0-10.3-3.7-19.8-9.9-27.2h251.9c15,0,27.2,12.2,27.2,27.2V34.7z"/>
+                   </svg>
+                    Плед
+                </span>
+                <input type="text" class="constructor--color-picker-input" id="color-picker-blanket" data-wcp-format="css" data-wcp-preview="true" />
+                <input type="color" class="constructor--color-picker-input-mobile" value="#ffffff" />
+            </li>
+        </ul>
+    </div>
+
+    <div class="construct-scene-wrapper">
+        <div class="construct-scene">
+            <div class="wall" data-bg="<?php echo $this->getViewFileUrl('images/constructor/wall-bg.jpg'); ?>"></div>
+            <div class="curtains" data-bg="<?php echo $this->getViewFileUrl('images/constructor/curtains-bg.jpg'); ?>" data-size="270"></div>
+            <div class="ficus"></div>
+            <div class="lampshade" data-bg="<?php echo $this->getViewFileUrl('images/constructor/lampshade-bg.jpg'); ?>" data-size="45"></div>
+            <div class="lampshade-inner" data-bg="<?php echo $this->getViewFileUrl('images/constructor/lampshade-inner-bg.jpg'); ?>" data-size="45"></div>
+            <div class="sofa" data-bg="<?php echo $this->getViewFileUrl('images/constructor/sofa-bg.jpg'); ?>"></div>
+            <div class="blanket" data-bg="<?php echo $this->getViewFileUrl('images/constructor/blanket-bg.jpg'); ?>" data-size="38"></div>
+    <!--        <div class="pillow-top" data-bg="--><?php //echo $this->getViewFileUrl('images/constructor/pillow-top-bg.jpg'); ?><!--" data-size="29"></div>-->
+            <div class="pillow-top" data-bg="<?php echo $this->getViewFileUrl('images/constructor/pillow-top-skew-bg.jpg'); ?>" data-size="29"></div>
+            <div class="pillow-bottom" data-bg="<?php echo $this->getViewFileUrl('images/constructor/pillow-back-bg.jpg'); ?>" data-size="29"></div>
+            <div class="pillow-small" data-bg="<?php echo $this->getViewFileUrl('images/constructor/small-pillow-bg.jpg'); ?>" data-size="16"></div>
+        </div>
+    </div>
+</div>

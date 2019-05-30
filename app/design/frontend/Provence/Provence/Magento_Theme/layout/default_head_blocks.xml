@@ -7,6 +7,7 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
+        <!--<link src="js/vendor/bodyScrollLock.min.js"/>-->
         <link src="js/provence.js"/>
         <link rel="stylesheet" type="text/css" src="https://fonts.googleapis.com/css?family=Alice|Montserrat&amp;amp;amp;subset=cyrillic" src_type="url" />
         <css src="css/jquery.fancybox.min.css"/>
