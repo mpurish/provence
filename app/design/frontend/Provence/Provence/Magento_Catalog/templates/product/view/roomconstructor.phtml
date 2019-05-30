@@ -1,0 +1,5 @@
+<?php $attribute = $block->getProduct()->getResource()->getAttribute('room_constructor'); ?>
+<?php $aValue = $attribute->getFrontend()->getValue($block->getProduct()); ?>
+<?php if($aValue): ?>
+    <a href="/constructor?fabrics=<?php echo $block->getProduct()->getSku(); ?>" class="pdp--constructor-link">В конструкторе<em class="p--icon-paint"></em></a>
+<?php endif; ?>

@@ -15,6 +15,8 @@
             <block class="Magento\Catalog\Block\Product\View" name="breadcrumbcolours" template="product/view/breadcrumbcolours.phtml" />
 
             <block class="Magento\Catalog\Block\Product\View" name="pdp.shipping" template="product/view/shipping.phtml" />
+
+            <block class="Magento\Catalog\Block\Product\View" name="pdp.constructor" template="product/view/roomconstructor.phtml" />
         </referenceBlock>
 
         <container name="pdpform" as="pdpform" label="pdpform" htmlTag="div" htmlClass="pdp--form" htmlId="pdpform" after="body" />
@@ -36,6 +38,8 @@
         <move element="breadcrumbcolours" destination="page.main.title" before="-" />
 
         <move element="product.info.sku" destination="page.main.title" after="-" />
+
+        <move element="pdp.constructor" destination="page.main.title" before="product.info.sku" />
 
         <move element="product.info.description" destination="product.info.main" after="-"/>
 
