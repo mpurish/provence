@@ -88,6 +88,12 @@ require(['jquery', 'bodyScrollLock'], function($, bodyScrollLock) {
         jQuery(document).on('click', '.filters--overlay', function () {
             jQuery('body').removeClass('filters--opened');
         });
+
+        jQuery(document).on('click', '[data-scroll]', function () {
+            jQuery('html, body').stop().animate({
+                    scrollTop: jQuery(jQuery(this).data('scroll')).offset().top - 100
+                }, 1000, 'swing');
+        });
     })
 });
 
