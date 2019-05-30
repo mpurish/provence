@@ -1,0 +1,116 @@
+#data-terms {
+    display: inline-block;
+    margin-bottom: .9em;
+}
+
+.cms-info-help ul {
+    list-style-type: none;
+    padding: 0;
+}
+.cms-info-help ul li ul {
+    padding: 0 0 0 10px;
+}
+.cms-info-help .link {
+    color: #1c96b1;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(28,150,177,.75);
+    transition: all .3s ease-in-out;
+}
+/*.cms-info-help .pseudo, .cms-info-help .pseudo:hover, .cms-info-help .pseudo:focus {*/
+     /*border-bottom-style: dashed;*/
+/*}*/
+.cms-info-help .link:hover, .cms-info-help .link:focus {
+    color: #ffb3c0;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,200,210,.75);
+    cursor: pointer;
+}
+.cms-info-help em {
+    font-style: normal;
+}
+.cms-info-help h4 {
+    font-size: 1.5em;
+}
+.colours span[id$="brown"], .colours span[id$="red"], .colours span[id$="yellow"], .colours span[id$="white"], .colours span[id$="green"], .colours span[id$="blue"], .colours span[id$="lilac"], .colours span[id$="black"] {
+    margin: 0 0 0 25px;
+    position: relative;
+}
+.colours *[id$="brown"]:after,
+.colours *[id$="red"]:after,
+.colours *[id$="yellow"]:after,
+.colours *[id$="white"]:after,
+.colours *[id$="green"]:after,
+.colours *[id$="blue"]:after,
+.colours *[id$="lilac"]:after,
+.colours *[id$="black"]:after {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    content: '';
+    right: 100%;
+    top: -2px;
+    margin-right: 3px;
+    border-radius: 50%;
+}
+
+.colours *[id$="brown"]:after {
+    background: radial-gradient(circle at 25px 0px, #c33f18 0, rgba(255, 59, 59, 0) 20px, rgba(255, 59, 59, 0) 30px), linear-gradient(45deg, #6a2f00 0%, #b25100 100%);
+}
+.colours *[id$="red"]:after {
+    background: radial-gradient(circle at 25px 0px, rgba(255, 220, 15, 0.7) 0, rgba(255, 235, 59, 0) 20px, rgba(255, 235, 59, 0) 30px), linear-gradient(45deg, #c72f0c 0%, #f68c32 100%);
+}
+.colours *[id$="yellow"]:after {
+    background: radial-gradient(circle at 25px -2px, rgba(255, 249, 203, 0.6) 0, rgba(255, 249, 204, 0.6) 10px, rgba(255, 244, 166, 0) 25px), linear-gradient(45deg, #fbc226 0%, #fdf08d 100%);
+}
+.colours *[id$="white"]:after {
+    background: radial-gradient(circle at 6px 6px, #fff 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(-45deg, #fbe7c7 0%, #fdf9f3 100%);
+}
+.colours *[id$="green"]:after {
+    background: radial-gradient(circle at 5px 2px, rgba(204, 239, 146, 0.8) 0, rgba(181, 245, 192, 0) 18px, rgba(181, 245, 192, 0) 20px), linear-gradient(-45deg, #6ea00d 0%, #bcdd88 100%);
+}
+.colours *[id$="blue"]:after {
+    background: radial-gradient(circle at 5px 2px, #b5e7f5 0, rgba(181, 231, 245, 0) 18px, rgba(181, 231, 245, 0) 20px), linear-gradient(-45deg, #638cbd 0%, #a4e1f3 100%);
+}
+.colours *[id$="lilac"]:after {
+    background: radial-gradient(circle at 5px 2px, #fcd3fd 0, rgba(250, 200, 251, 0) 18px), linear-gradient(-45deg, #9755ab 0%, #febaff 100%);
+}
+.colours *[id$="black"]:after {
+    background: radial-gradient(circle at 5px 2px, rgba(255, 255, 255, 0.4) 0, rgba(255, 255, 255, 0) 18px), linear-gradient(-45deg, #404040 0%, #cacaca 100%);
+}
+
+.cms-info-help .colours h5:after {
+    position: static;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: -8px 0 0 4px;
+}
+
+.cms-info-help h5 {
+    font-family: 'Alice', serif;
+    font-size: 1.05em;
+}
+.cms-info-help em {
+    transition: all .3s ease-in-out;
+    position: relative;
+}
+.cms-info-help em:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,200,210,.0);
+    border-radius: 3px;
+    display: block;
+    padding: 0 3px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+em.currentTerm {
+    color: #1c96b1;
+}
+em.currentTerm:before {
+    background-color: rgba(255,200,210,.2);
+}

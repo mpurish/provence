@@ -1,15 +1,19 @@
 <?php $feAttributes = array('country', 'delivery_time', 'fabrics_type' , 'fabrics_width', 'embroidery_width', 'pattern', 'horizontal_rapport', 'vertical_rapport', 'pattern_orientation', 'pattern_orientation_in_roll', 'rotatable_pattern', 'style', 'gamma', 'shine', 'sides', 'washable', 'dry_clean', 'ironing',  'weightning'); ?>
 <h3><?= /* @escapeNotVerified */ __('Features') ?></h3>
-<ul>
+<ul class="pdp-attribute-list">
 <?php foreach ($feAttributes as $a): ?>
     <?php $attribute = $block->getProduct()->getResource()->getAttribute($a); ?>
     <?php $aValue = $attribute->getFrontend()->getValue($block->getProduct()); ?>
     <?php if($aValue): ?>
-        <li>
-        <?php echo $aName = $attribute->getStoreLabel() . ': '; ?>
-        <?php echo $aValue; ?>
+        <li class="pdp-attribute">
+            <span class="feature_tooltip" data-value="<?php echo $aName = $attribute->getStoreLabel() ; ?>">
+                <?php echo $aName . ': '; ?>
+            </span>
+            <span class="feature_tooltip" data-value="<?php echo $aValue; ?>">
+                <?php echo $aValue; ?>
+            </span>
+            <div class="tooltip_wrapper"></div>
         </li>
     <?php endif; ?>
 <?php endforeach; ?>
 </ul>
-
