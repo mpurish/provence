@@ -94,6 +94,44 @@ require(['jquery', 'bodyScrollLock'], function($, bodyScrollLock) {
                     scrollTop: jQuery(jQuery(this).data('scroll')).offset().top - 100
                 }, 1000, 'swing');
         });
+
+        $('.list-of-contents .link, .return-to.link').on('click', function() {
+            $('p em').removeClass('currentTerm');
+            var navigateId = $(this).attr('id').split('data-')[1];
+            $('html, body').animate({
+                scrollTop: $('#' + navigateId).offset().top - 7
+            }, 500);
+            if ($('#' + navigateId + ' em').length) {
+                $('#' + navigateId + ' em:last-child').addClass('currentTerm');
+            } else {
+                $('#' + navigateId).parent('p').find('em:last-child').addClass('currentTerm');
+            }
+        });
+
+        $('.product-collapsable_wrapper h3').on('click', function () {
+            console.log('toggle');
+            $('.product-collapsable_wrapper h3').toggleClass('care-tips-expanded');
+            $('.product-collapsable_wrapper h3 + ul').slideToggle();
+        });
+
+        if($('body').hasClass('catalog-product-view')) {
+            var response = '';
+            $.ajax({
+                type: 'GET',
+                url: '/info/help',
+                async: true,
+                success: function(data) {
+                    response = $(data).find('.column.main');
+                    $('.feature_tooltip').each(function() {
+                        var $this = $(this);
+                        var thisTooltip = response.find('[data-value="' + $this.data('value') + '"]');
+                        if (thisTooltip.length) {
+                            $this.siblings('.tooltip_wrapper').html('<i class="icon-info"></i><span class="feature_tooltip-text">' + thisTooltip.html() + '</span>');
+                        }
+                    });
+                }
+            });
+        }
     })
 });
 

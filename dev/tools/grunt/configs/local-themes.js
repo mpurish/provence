@@ -39,7 +39,8 @@ module.exports = {
             'css/styles-m',
             'css/styles-l',
             'css/email',
-            'css/email-inline'
+            'css/email-inline',
+            'mage/gallery/gallery'
         ],
         dsl: 'less'
     },

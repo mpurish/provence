@@ -9,14 +9,12 @@
     <body>
         <referenceBlock name="product.info.main">
             <block class="Magento\Catalog\Block\Product\View" name="attributes" template="product/view/attributes.phtml" />
-        </referenceBlock>
 
-        <referenceBlock name="product.info.main">
             <block class="Magento\Catalog\Block\Product\View" name="description.colours" template="product/view/descriptioncolours.phtml" />
-        </referenceBlock>
 
-        <referenceBlock name="product.info.main">
             <block class="Magento\Catalog\Block\Product\View" name="breadcrumbcolours" template="product/view/breadcrumbcolours.phtml" />
+
+            <block class="Magento\Catalog\Block\Product\View" name="pdp.shipping" template="product/view/shipping.phtml" />
         </referenceBlock>
 
         <container name="pdpform" as="pdpform" label="pdpform" htmlTag="div" htmlClass="pdp--form" htmlId="pdpform" after="body" />
@@ -30,6 +28,10 @@
         <move element="product.info.addto" destination="pdpform" after="product.info"/>
 
         <move element="product.info.social" destination="pdpform" after="-"/>
+
+        <move element="product.info.review" destination="pdpform" before="product.info.social"/>
+
+        <move element="pdp.shipping" destination="pdpform" before="product.info.addto"/>
 
         <move element="breadcrumbcolours" destination="page.main.title" before="-" />
 
