@@ -5,7 +5,7 @@
 .yereone-testimonials .yereone-testimonial-item .yereone-testimonial-image {
     padding: 150px 0 0;
     width: 150px;
-    margin: 0 0 20px;
+    margin: 0 auto 20px;
     position: relative;
     border-radius: 50%;
     overflow: hidden;
@@ -369,7 +369,7 @@
     border: none;
     padding: 0;
     border-bottom: 1px dotted;
-    margin: 15px 0 0 20px;
+    margin: 20px 0 0;
     border-radius: 0;
     color: #999;
     transition: color .3s;
@@ -390,7 +390,7 @@
     }
 
     .yereone-testimonials .yereone-testimonial-item .yereone-testimonial-image {
-        margin-right: 20px;
+        margin: 0 20px 20px 0;
     }
 
     .yereone-testimonials-grid .yereone-testimonial-item .yereone-testimonials-grid-left {
@@ -411,6 +411,10 @@
     .testimonials--right {
         order: 1;
         margin: 0 0 0 20px;
+    }
+
+    .testimonial.form .button[type="reset"] {
+        margin: 15px 0 0 20px;
     }
 }
 
