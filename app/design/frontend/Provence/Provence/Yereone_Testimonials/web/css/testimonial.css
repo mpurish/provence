@@ -56,33 +56,41 @@
     top: 0;
     width: 100%;
     z-index: 1;
-    -webkit-font-smoothing: antialiased;
     color: #c7c7c7;
-    font-size: 20px;
     height: 20px;
-    line-height: 20px;
-    content: '\2605' '\2605' '\2605' '\2605' '\2605';
     display: block;
+    content: "\e908 \e908 \e908 \e908 \e908";
+    font-family: 'icons' !important;
+    speak: none;
     font-style: normal;
     font-weight: normal;
-    speak: none;
-    letter-spacing: .1em;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 25px;
+    letter-spacing: 0;
 }
 
 .yereone-testimonials .yereone-testimonial-item .yereone-testimonial-rating .rating-result > span:before {
     position: relative;
     z-index: 2;
-    -webkit-font-smoothing: antialiased;
     color: #3ba8ea;
-    font-size: 20px;
     height: 20px;
-    line-height: 20px;
-    content: '\2605' '\2605' '\2605' '\2605' '\2605';
     display: block;
+    content: "\e908 \e908 \e908 \e908 \e908";
+    font-family: 'icons' !important;
+    speak: none;
     font-style: normal;
     font-weight: normal;
-    speak: none;
-    letter-spacing: .1em;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 25px;
+    letter-spacing: 0;
 }
 
 .yereone-testimonials .yereone-testimonial-item .yereone-testimonial-rating .rating-result {
@@ -193,42 +201,56 @@
 .yereone-testimonials-block-title h2 span:after {
     content: " ";
     width: 20px;
-    background: #d83701;
+    background: #3aa9e9;
     height: 3px;
     display: block;
-    margin: 0 auto;
-    margin-top: 5px;
+    margin: 5px auto 0;
 }
 
 .testimonial .rating {
-    width: 125px;
+    width: 125px !important;
     overflow: hidden;
+    padding: 10px 0 0;
 }
 
 .testimonial .rating span { 
-    float:right; position:relative; 
+    float: right;
+    position:relative;
 }
 
 .testimonial .rating span input {
     position:absolute;
-    top:0px;
-    left:0px;
-    opacity:0;
+    top: 0;
+    left: 0;
+    opacity: 0;
 }
 
 .testimonial .rating span label:after {
-    content: '\2605';
     display: inline-block;
     color: #c7c7c7;
-    font-size: 30px;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
+    height: 20px;
+    content: "\e908";
+    font-family: 'icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 25px;
+    letter-spacing: 0;
 }
 
 .testimonial .rating span:hover ~ span label:after,
 .testimonial .rating span:hover label:after,
 .testimonial .rating span.checked label:after,
 .testimonial .rating span.checked ~ span label:after {
-    color: #ff5501;
+    color: #3ba8ea;
 }
 
 #testimonial-form .field.email span.note {
@@ -272,6 +294,89 @@
 
 .testimonials--btn-text {
     margin: 0 0 40px;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 10px 20px 10px 40px;
+    position: relative;
+}
+
+/*.inputfile:focus + label,*/
+/*.inputfile.has-focus + label {*/
+    /*outline: 1px dotted #000;*/
+    /*outline: -webkit-focus-ring-color auto 5px;*/
+/*}*/
+
+/*.inputfile + label * {*/
+    /* pointer-events: none; */
+    /* in case of FastClick lib use */
+/*}*/
+
+.inputfile + label:before {
+    content: "\e909";
+    font-family: 'icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.3em;
+    position: absolute;
+    left: 15px;
+    top: 11px;
+}
+
+.inputfile-2 + label {
+    color: #3aa9e9;
+    border: 2px solid currentColor;
+    border-radius: 25px;
+    transition: color .3s;
+}
+
+.inputfile-2:focus + label,
+.inputfile-2.has-focus + label,
+.inputfile-2 + label:hover {
+    color: #0492e6;
+}
+
+.testimonial.form .action.primary {
+    height: 45px;
+    padding: 0 20px;
+    line-height: 45px;
+    border-radius: 25px;
+}
+
+.testimonial.form .button[type="reset"] {
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-bottom: 1px dotted;
+    margin: 15px 0 0 20px;
+    border-radius: 0;
+    color: #999;
+    transition: color .3s;
+}
+
+.testimonial.form .button[type="reset"]:hover {
+    color: #666;
 }
 
 @media (min-width: 768px) {
