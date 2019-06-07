@@ -11,5 +11,7 @@
         <link src="js/provence.js"/>
         <link rel="stylesheet" type="text/css" src="https://fonts.googleapis.com/css?family=Alice|Montserrat&amp;amp;amp;subset=cyrillic" src_type="url" />
         <css src="css/jquery.fancybox.min.css"/>
+        <css src="css/swiper.min.css"/>
+        <!--<css src="js/vendor/swiper.min.js"/>-->
     </head>
 </page>

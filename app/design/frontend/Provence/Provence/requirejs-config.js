@@ -4,7 +4,8 @@ var config = {
             'fancybox': 'js/vendor/jquery.fancybox.min',
             'colorpicker': 'js/vendor/jquery.wheelcolorpicker.min',
             'constructor': 'js/constructor',
-            'bodyScrollLock': 'js/vendor/bodyScrollLock.min'
+            'bodyScrollLock': 'js/vendor/bodyScrollLock.min',
+            'swiper': 'js/vendor/swiper.min'
         }
     },
     shim: {
@@ -19,6 +20,7 @@ var config = {
         'constructor': {
             deps: ['jquery', 'colorpicker']
 
-        }
+        },
+        'swiper': {}
     }
 };

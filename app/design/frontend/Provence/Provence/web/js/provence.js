@@ -1,4 +1,4 @@
-require(['jquery', 'bodyScrollLock'], function($, bodyScrollLock) {
+ require(['jquery', 'bodyScrollLock', 'swiper'], function($, bodyScrollLock, Swiper) {
     function isMobile() {
         try {
             document.createEvent('TouchEvent');
