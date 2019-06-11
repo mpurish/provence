@@ -159,7 +159,30 @@
                 .on('focus', function(){ $input.addClass('has-focus'); })
                 .on('blur', function(){ $input.removeClass('has-focus'); });
         });
-    })
+    });
+
+//     Related products swiper
+     var relatedProductsSwiper = new Swiper ('.related-products-swiper', {
+         slidesPerView: 4,
+         spaceBetween: 20,
+         pagination: {
+             el: '.related-products-swiper-pagination',
+             clickable: true
+         },
+         breakpoints: {
+             // when window width is <= 320px
+             767: {
+                 slidesPerView: 1,
+                 spaceBetween: 20
+             }
+         },
+         navigation: {
+             nextEl: '.related-products-swiper-next',
+             prevEl: '.related-products-swiper-prev'
+         }
+     });
+
+
 });
 
 function updateUrlParameter(key, value, uri) {
