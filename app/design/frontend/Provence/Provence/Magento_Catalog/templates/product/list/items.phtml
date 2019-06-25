@@ -166,12 +166,12 @@ switch ($type = $block->getType()) {
         <strong id="block-<?= /* @escapeNotVerified */ $class ?>-heading" role="heading" aria-level="2"><?= /* @escapeNotVerified */ $title ?></strong>
     </div>
     <div class="block-content content" aria-labelledby="block-<?= /* @escapeNotVerified */ $class ?>-heading">
-        <?php if ($type == 'related' && $canItemsAddToCart): ?>
-        <div class="block-actions">
-            <?= /* @escapeNotVerified */ __('Check items to add to the cart or') ?>
-            <button type="button" class="action select" role="select-all"><span><?= /* @escapeNotVerified */ __('select all') ?></span></button>
-        </div>
-        <?php endif; ?>
+<!--        --><?php //if ($type == 'related' && $canItemsAddToCart): ?>
+<!--        <div class="block-actions">-->
+<!--            --><?//= /* @escapeNotVerified */ __('Check items to add to the cart or') ?>
+<!--            <button type="button" class="action select" role="select-all"><span>--><?//= /* @escapeNotVerified */ __('select all') ?><!--</span></button>-->
+<!--        </div>-->
+<!--        --><?php //endif; ?>
         <div class="products wrapper grid products-grid products-<?= /* @escapeNotVerified */ $type ?>">
             <ol class="products list items product-items">
                 <?php foreach ($items as $_item): ?>
@@ -204,10 +204,10 @@ switch ($type = $block->getType()) {
 
                             <?php if ($canItemsAddToCart && !$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
                                 <?php if (!$_item->getRequiredOptions()): ?>
-                                    <div class="field choice related">
+                                    <!--div class="field choice related">
                                         <input type="checkbox" class="checkbox related" id="related-checkbox<?= /* @escapeNotVerified */ $_item->getId() ?>" name="related_products[]" value="<?= /* @escapeNotVerified */ $_item->getId() ?>" />
                                         <label class="label" for="related-checkbox<?= /* @escapeNotVerified */ $_item->getId() ?>"><span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span></label>
-                                    </div>
+                                    </div-->
                                 <?php endif; ?>
                             <?php endif; ?>
 

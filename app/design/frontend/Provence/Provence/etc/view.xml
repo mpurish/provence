@@ -22,6 +22,10 @@
                 <width>75</width>
                 <height>69</height>
             </image>
+            <image id="related_products_list" type="small_image">
+                <width>300</width>
+                <height>278</height>
+            </image>
         </images>
     </media>
 </view>
