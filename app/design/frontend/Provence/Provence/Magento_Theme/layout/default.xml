@@ -14,18 +14,16 @@
         <referenceBlock name="register-link" remove="true" />
         <referenceBlock name="copyright" remove="true" />
         <referenceBlock name="report.bugs" remove="true" />
-
-        <!--<referenceContainer name="footer-container">-->
-            <!--<container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">-->
-                <!--<block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" template="Magento_Store::switch/stores.phtml"/>-->
-                <!--<block class="Magento\Framework\View\Element\Html\Links" name="footer_links">-->
-                    <!--<arguments>-->
-                        <!--<argument name="css_class" xsi:type="string">footer links</argument>-->
-                    <!--</arguments>-->
-                <!--</block>-->
-                <!--<block class="Magento\Theme\Block\Html\Footer" name="copyright" template="Magento_Theme::html/copyright.phtml"/>-->
-                <!--<block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" ifconfig="design/footer/report_bugs"/>-->
-            <!--</container>-->
-        <!--</referenceContainer>-->
+        <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true"/>
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Template" name="footer.social" template="Magento_Theme::html/footer-social.phtml" />
+            <block class="Magento\Cms\Block\Block" name="footer_block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_block</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Template" name="footer.copy" template="Magento_Theme::html/footer-copyright.phtml" />
+        </referenceContainer>
     </body>
 </page>

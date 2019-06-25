@@ -65,7 +65,11 @@
                         bodyScrollLock.clearAllBodyScrollLocks();
                     }
                 }, 300);
-            })
+            });
+
+            jQuery('.footer.links h5').on('click', function () {
+                jQuery(this).toggleClass('active').parents('.footer.links').find('.item').slideToggle();
+            });
         }
 
         $(document).on('click', '.toolbar-products .sorter--action', function () {
