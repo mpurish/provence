@@ -1797,6 +1797,13 @@
     .li--mobile {
       display: none;
     }
+
+    .li--help {
+      width: 100% !important;
+      border-top: 1px solid #ddd;
+      margin-top: 10px;
+      padding-top: 20px;
+    }
   }
 
   .main--menu-dropdown {
@@ -2460,6 +2467,19 @@
       padding: 0 10px;
       margin: 10px 10px 0;
       display: inline-block;
+    }
+  }
+
+  .li--help {
+    padding-top: 20px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      top: 10px;
+      border-top: 1px solid #ddd;
     }
   }
 
