@@ -12,6 +12,18 @@
                 <block class="Magento\Framework\View\Element\Template" name="header.provence.links" template="Magento_Theme::html/header/provence-links.phtml" />
         </referenceContainer>
         <referenceBlock name="register-link" remove="true" />
-        <!--<move element="header.provence.links" destination="header.panel" before="-"/>-->
+        <referenceBlock name="copyright" remove="true" />
+        <referenceBlock name="report.bugs" remove="true" />
+        <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true"/>
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Template" name="footer.social" template="Magento_Theme::html/footer-social.phtml" />
+            <block class="Magento\Cms\Block\Block" name="footer_block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_block</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Template" name="footer.copy" template="Magento_Theme::html/footer-copyright.phtml" />
+        </referenceContainer>
     </body>
 </page>
