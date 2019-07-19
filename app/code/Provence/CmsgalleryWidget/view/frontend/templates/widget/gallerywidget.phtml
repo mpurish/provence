@@ -15,6 +15,7 @@
             $flags = \FilesystemIterator::SKIP_DOTS | \FilesystemIterator::UNIX_PATHS;
             $iterator = new \FilesystemIterator($block_dir, $flags);
 
+            echo '<div class="cms--gallery-wrapper">';
             foreach ($iterator as $file) {
                 $fname = $file->getFileName();
                 if(preg_match("/\.jpg|\.png/i", $fname)) {
@@ -26,6 +27,7 @@
                     echo '<a data-fancybox="gallery" href="' . $cUrl . '" data-caption="' . $cDesc . '"><img src="' . $image->resize($fname, $sub_dir . '/', 250) .'" alt="' . strip_tags($cDesc) . '" /></a>';
                 }
             }
+            echo '</div>';
         }
         catch (\Exception $e) {
             throw new FileSystemException(new \Magento\Framework\Phrase($e->getMessage()), $e);

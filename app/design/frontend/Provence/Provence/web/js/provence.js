@@ -1,4 +1,5 @@
- require(['jquery', 'bodyScrollLock', 'swiper'], function($, bodyScrollLock, Swiper) {
+ require(['jquery', 'bodyScrollLock', 'swiper', 'fancybox'], function($, bodyScrollLock, Swiper, fancybox) {
+
     function isMobile() {
         try {
             document.createEvent('TouchEvent');
@@ -188,7 +189,111 @@
      });
 
 
+     $('.open-album').on('click', function(e) {
+         e.preventDefault();
+         $('#gallery_location').find('a').first().trigger('click');
+     });
+
+
+
 });
+
+ function initMap() {
+     var center = {lat: 50.5198, lng: 30.453};
+     var styles =
+         [
+             {
+                 "featureType": "administrative.land_parcel",
+                 "elementType": "labels",
+                 "stylers": [
+                     {
+                         "visibility": "off"
+                     }
+                 ]
+             },
+             {
+                 "featureType": "poi",
+                 "elementType": "labels.text",
+                 "stylers": [
+                     {
+                         "visibility": "off"
+                     }
+                 ]
+             },
+             {
+                 "featureType": "road.local",
+                 "elementType": "labels",
+                 "stylers": [
+                     {
+                         "visibility": "off"
+                     }
+                 ]
+             }
+         ];
+
+     if (document.getElementById('map')) {
+         var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 18,
+             center: center,
+             styles: styles
+         });
+     }
+
+     var mapFooter = new google.maps.Map(document.getElementById('mapFooter'), {
+         zoom: 18,
+         center: center,
+         styles: styles
+     });
+
+     var icon = {
+         path: 'M16.734,0C9.375,0,3.408,5.966,3.408,13.325c0,11.076,13.326,20.143,13.326,20.143S30.06,23.734,30.06,13.324 C30.06,5.965,24.093,0,16.734,0z M16.734,19.676c-3.51,0-6.354-2.844-6.354-6.352c0-3.508,2.844-6.352,6.354-6.352 c3.508-0.001,6.352,2.845,6.352,6.353C23.085,16.833,20.242,19.676,16.734,19.676z',
+         fillColor: '#00a8f0',
+         fillOpacity: 1,
+         size: new google.maps.Size(33.468, 33.468),
+         origin: new google.maps.Point(0, 0),
+         anchor: new google.maps.Point(16.734,33.468),
+         strokeWeight: 1,
+         strokeColor: '#ffffff',
+         scale: 1
+     };
+
+     if (document.getElementById('map')) {
+         var marker = new google.maps.Marker({
+             position: center,
+             icon: icon,
+             map: map,
+             title: 'Салон штор «Прованс»'
+         });
+     }
+
+     var markerFooter = new google.maps.Marker({
+         position: center,
+         icon: icon,
+         map: mapFooter,
+         title: 'Салон штор «Прованс»'
+     });
+
+     var contentString =
+         '<h4 class="mapHeading">Салон штор «Прованс»</h4>'+
+         '<div class="mapContent">'+
+         '<p>Киев, ул. Автозаводская, д. 99/4</p>' +
+         '<p><small>С понедельника по пятницу с 10:00 до 19:00, в субботу с 10:00 до 17:00</small></p>'+
+         '</div>';
+
+     var infowindow = new google.maps.InfoWindow({
+         content: contentString
+     });
+
+     if (document.getElementById('map')) {
+         marker.addListener('click', function() {
+             infowindow.open(map, marker);
+         });
+     }
+
+     markerFooter.addListener('click', function() {
+         infowindow.open(mapFooter, markerFooter);
+     });
+ }
 
 function updateUrlParameter(key, value, uri) {
     if (!uri) uri = window.location.href;
