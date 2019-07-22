@@ -1,7 +1,23 @@
 & when (@media-common = true) {
-
+  .clear {
+    clear: both;
+  }
+  .clear-left {
+    clear: left;
+  }
+  .clear-right {
+    clear: right;
+  }
   //  CMS PAGE
   .cms-page-view {
+    p, li {
+      max-width: 960px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
     .article-img {
       width: 100%;
       max-width: 100%;
@@ -20,9 +36,52 @@
         height: 100%;
       }
     }
+
+
+    .col3art {
+      display: flex;
+      list-style: none;
+      max-width: 960px;
+      padding: 0;
+
+      li {
+        width: 100%;
+
+      }
+    }
+    table {
+      max-width: 650px;
+      margin-bottom: 1em;
+      .odd {
+        background: rgba(59, 168, 234, 0.05);
+
+      }
+      td:last-child {
+        text-align: right;
+      }
+    }
+    .table_pricing_header {
+      background: rgba(128, 128, 128, 0.05);
+    }
+    .pricing_table {
+
+      table {
+      max-width: 780px
+      }
+    }
+
   }
   //  Delivery cms page
   .cms-info-delivery {
+
+
+    p  {
+      &+ h3 {
+        margin-top: 1.35em;
+      }
+
+    }
+
     .list-of-contents {
       list-style: none;
       padding: 0;
@@ -42,6 +101,117 @@
       }
     }
   }
+  #map {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 3.3em;
+  }
+
+  #gallery_location {
+    display: none;
+  }
+  .map-tabs {
+    list-style: none;
+    padding: 0;
+    margin-top: 2.5em;
+
+    li {
+      display: inline-block;
+    }
+
+    .mapSelected {
+      background: #ffb3c0;
+      border-radius: 10px;
+      color: #fff;
+      padding: 5px 10px;
+      text-shadow: 1px 1px rgba(102,51,102,.1);
+
+    }
+    .show-on-photo {
+      position: relative;
+      margin-left: 10px;
+
+      &:after {
+        font-family: 'icons' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: '\e90f';
+        font-size: 1.2em;
+        color: #1c96b1;
+        margin-left: 5px;
+        transition: color .3s ease-in-out;
+      }
+      a {
+        border-bottom: 1px dotted;
+      }
+    }
+  }
+  .show-on-photo:hover:after {
+    color: #ffb3c0;
+  }
+  .cms__h3-bellow-img {
+    margin-bottom: 1.8em;
+  }
+  .author {
+    clear: both;
+  }
+
+  .cms--gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    clear: both;
+    margin: 0 -10px 20px 0;
+
+    [data-fancybox="gallery"] {
+      width: calc(~'50% - 10px');
+      margin: 0 10px 10px 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px;
+
+      &:before {
+        content: '';
+        display: block;
+        padding: 100% 0 0;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .archive-cover {
+    list-style: none;
+    padding: 0;
+    margin: 2em 0 0;
+
+      li {
+        display: inline-block;
+        width: calc(~'50% - 10px');
+        text-align: center;
+
+        p {
+          font-size: .8em;
+        }
+
+        img {
+          border-radius: 3px;
+        }
+    }
+  }
+
 
 }
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
@@ -50,7 +220,7 @@
   .cms-page-view {
     .article-img {
       width: auto;
-      margin: 5px 10px;
+      margin: 5px 10px 10px 0;
       float: left;
       clear: left;
     }
@@ -69,6 +239,42 @@
         display: inline-block;
       }
     }
+    .col3art {
 
+      li {
+          margin: 0 10px;
+          width: calc(~'33% - 20px');
+      }
+    }
+  }
+
+  .cms--gallery-wrapper {
+    [data-fancybox="gallery"] {
+      width: calc(~'25% - 10px');
+    }
+  }
+
+  .archive-cover {
+
+    li {
+      display: inline-block;
+      width: calc(~'20% - 10px');
+
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .cms--gallery-wrapper {
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+
+    [data-fancybox="gallery"] {
+      width: calc(~'20% - 10px');
+
+    }
   }
 }

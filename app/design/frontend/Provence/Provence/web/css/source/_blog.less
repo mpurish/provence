@@ -1,0 +1,111 @@
+& when (@media-common = true) {
+
+  .mpblog-post-index, .mpblog-category-view {
+
+    .mp-blog-rss {
+      display: none;
+    }
+    .column.main {
+      width: 100% !important;
+    }
+    .post-list-body {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .post-list-item {
+        width: calc(~'((100% - 40px) / 4)');
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          box-shadow: 0 0 2px 0.5px rgba(21, 21, 21, 0.05), 0 1px 5px 0 rgba(21, 21, 21, 0.15);
+
+        }
+        .post-image {
+          position: relative;
+          margin: -1px -1px 0;
+          padding: calc(100% + 2px) 0 0;
+          min-height: 0;
+          overflow: hidden;
+          border-radius: 3px 3px 0 0;
+
+          a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+            img {
+              width: 100%;
+              max-height: none;
+              max-width: none;
+              height: 100%;
+              object-fit: cover;
+            }
+
+          }
+        }
+      }
+    }
+
+    .post-link-title {
+      color: #1c96b1 !important;
+    }
+    .post-info-wraper h2.mp-post-title a, .about-admin h4.admin-title a, .mp-post-meta-info a.mp-read-more, .mp-post-info a.mp-info, ul.menu-categories a.list-categories:hover, .products-same-post a.product-item-link:hover, a.mp-relate-link, .mpblog-product-name {
+      color: #1c96b1 !important;
+    }
+    .post-item-wraper {
+      transition: all .3s ease-in-out;
+      border-radius: 3px;
+    }
+
+    .mp-read-more, .post-link-title  {
+      transition: color .3s ease-in-out;
+    }
+    .post-info-wraper .mp-post-meta-info .mp-read-more:hover, .post-info-wraper .mp-post-title .post-link-title:hover {
+      color: #F69BAB !important;
+    }
+    .post-info-wraper h2.mp-post-title {
+      margin-bottom: .3em;
+    }
+  }
+  .mpblog-post-view .post-view-image {
+    max-width: 460px;
+    text-align: left;
+
+  }
+  .mpblog-post-view .post-view-image {
+
+    img {
+      border-radius: 3px;
+    }
+
+  }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  .mpblog-post-view  {
+
+    .mp-blog-rss {
+      display: none;
+    }
+
+    .post-view-image {
+
+      max-width: 420px;
+      text-align: left;
+    }
+
+
+    .page-title-wrapper {
+
+      h1 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+

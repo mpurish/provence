@@ -16,6 +16,7 @@
         <referenceBlock name="report.bugs" remove="true" />
         <referenceBlock name="footer_links" remove="true"/>
         <referenceBlock name="form.subscribe" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
         <referenceContainer name="footer">
             <block class="Magento\Framework\View\Element\Template" name="footer.social" template="Magento_Theme::html/footer-social.phtml" />
             <block class="Magento\Cms\Block\Block" name="footer_block">
