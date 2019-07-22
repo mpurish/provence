@@ -1,0 +1,43 @@
+.image--404 {
+    display: block;
+    max-width: 400px;
+    margin: 0 auto 40px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.image--404:before {
+    content: '';
+    display: block;
+    padding: 75% 0 0;
+}
+
+.image--404.img--0 {
+    background-image: url('../images/404/almost-poodle.jpg');
+    background-size: 85% auto;
+}
+
+.image--404.img--1 {
+    background-image: url('../images/404/poodle.jpg');
+    background-size: contain;
+}
+
+.cms-no-route .page-title-wrapper {
+    text-align: center;
+}
+
+.cms-no-route .column.main {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .cms-no-route .page-title-wrapper {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .cms-no-route .page-title-wrapper {
+        margin-top: 40px;
+    }
+}
