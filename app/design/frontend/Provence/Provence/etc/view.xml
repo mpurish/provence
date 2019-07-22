@@ -26,6 +26,14 @@
                 <width>300</width>
                 <height>278</height>
             </image>
+            <image id="side_column_widget_product_thumbnail" type="thumbnail">
+                <width>300</width>
+                <height>278</height>
+            </image>
+            <image id="wishlist_thumbnail" type="small_image">
+                <width>300</width>
+                <height>278</height>
+            </image>
         </images>
     </media>
 </view>

@@ -23,6 +23,7 @@ $_testimonialCollection = $block->getTestimonialsCollection();
         <?php foreach ($_testimonialCollection as $testimonial): ?>
         <?php $i++; ?>
             <div class="yereone-testimonial-item<?php echo ($i % 2 != 0) ? ' yereone-testimonial-item-margin' : ''; ?>">
+                <a class="testimonial--href" name="testimonial-<?php echo($testimonial->getId()); ?>"></a>
                 <div class="yereone-testimonials-grid-left">
                     <?php if ($block->showImage()): ?>
                         <div class="yereone-testimonial-image<?php if(strpos($block->getAuthorImage($testimonial->getImage()), 'avatar_placeholder_large') !== false): ?> no--image<?php endif; ?>">

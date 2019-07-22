@@ -161,6 +161,13 @@
 .yereone-testimonials-grid .yereone-testimonial-item {
     width: 100%;
     margin-bottom: 40px;
+    position: relative;
+}
+
+.testimonial--href {
+    position: absolute;
+    left: 0;
+    top: -120px;
 }
 
 .yereone-testimonials-grid .yereone-testimonial-item .yereone-testimonials-grid-left {

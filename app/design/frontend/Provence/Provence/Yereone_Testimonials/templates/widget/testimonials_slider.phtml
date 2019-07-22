@@ -1,0 +1,110 @@
+<?php
+/**
+ * Testimonials slider template
+ *
+ * @var $block \Yereone\Testimonials\Block\Widget\Testimonial
+ */
+?>
+<?php
+$_testimonialCollection = $block->getTestimonialsCollection();
+$uniqueKey = $block->getUniqueKey();
+?>
+<?php if (!$_testimonialCollection->count()): ?>
+    <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find testimonials matching the selection.') ?></div></div>
+<?php else: ?>
+    <?php if ($widgetTitle = $block->getWidgetTitle()): ?>
+        <div class="yereone-testimonials-block-title">
+            <h2><a href="/about-us/feedback"><?php echo /* @escapeNotVerified */ $widgetTitle; ?></a></h2>
+            <div class="testimonials--slider-top-stars"><span></span></div>
+        </div>
+    <?php endif; ?>
+
+
+    <div class="swiper-container testimonials--slider testimonials--slider-<?php echo $uniqueKey; ?> yereone-testimonials">
+        <div class="swiper-wrapper">
+            <?php $t_qty = 0; ?>
+            <?php foreach ($_testimonialCollection as $testimonial): ?>
+                <?php if($block->escapeHtml($testimonial->getRating()) === '100' and strpos($testimonial->getTestimonialContent(), '<iframe') === false): ?>
+                    <div class="swiper-slide yereone-testimonial-item">
+
+                        <?php if ($block->showTitle()): ?>
+                            <div class="yereone-testimonial-title">
+                                <a href="/about-us/feedback#testimonial-<?php echo($testimonial->getId()); ?>"><?php echo $block->escapeHtml(__($testimonial->getTitle())); ?></a>
+                            </div>
+                        <?php endif; ?>
+                        <div class="yereone-testimonial-content">
+                            <?php $tContent = explode('====', $testimonial->getTestimonialContent()); ?>
+                            <span><?php echo $block->escapeHtml(__(preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $tContent[0]))); ?></span>
+                            <a class="testimonials--arrow" href="/about-us/feedback#testimonial-<?php echo($testimonial->getId()); ?>"><em class="p--icon-long-arrow"></em></a>
+                        </div>
+
+                        <?php if ($block->showRating()): ?>
+                            <div class="yereone-testimonial-rating">
+                                <div class="rating-result">
+                                    <span style="width: <?php echo $block->escapeHtml($testimonial->getRating()).'%'; ?>"></span>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <div class="testimonials--slider-name-city">
+                            <?php if ($block->showAuthor()): ?>
+                                <div class="yereone-testimonial-author smile--<?php echo rand(0, 6); ?>"><span><?php echo $block->escapeHtml(__($testimonial->getAuthor())); ?></span></div>
+                            <?php endif; ?>
+                            <?php if ($block->showCity() || $block->showCreationTime()): ?>
+                                <div class="yereone-testimonial-meta">
+                                    <?php if ($block->showCreationTime()): ?>
+                                        <span class="yereone-testimonial-date">
+                                    <?php echo substr($testimonial->getCreationTime(), 0, strrpos($testimonial->getCreationTime(), ' ')); ?>
+                                </span>
+                                    <?php endif; ?>
+                                    <?php if ($block->showCity()): ?>
+                                        <span class="yereone-testimonial-address"><?php echo $block->escapeHtml(__($testimonial->getCity())); ?></span>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <?php $t_qty++; ?>
+                    <?php if($t_qty > 3): ?>
+                        <?php break; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php endforeach;?>
+        </div>
+        <div class="testimonials--slider-pagination"></div>
+        <div class="testimonials--slider-button-prev"></div>
+        <div class="testimonials--slider-button-next"></div>
+    </div>
+
+    <script>
+        require(['swiper'], function(Swiper) {
+            var testimonialsSwiper<?php echo $uniqueKey; ?> = new Swiper('.testimonials--slider-<?php echo $uniqueKey; ?>', {
+                spaceBetween: 20,
+                speed: 600,
+                slidesPerView: 'auto',
+                loop: false,
+                pagination: {
+                    el: '.testimonials--slider-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.testimonials--slider-button-next',
+                    prevEl: '.testimonials--slider-button-prev'
+                },
+                breakpoints: {
+                    1279: {
+                        slidesPerView: 3,
+                        loop: true
+                    },
+                    991: {
+                        slidesPerView: 2,
+                        loop: true
+                    },
+                    767: {
+                        slidesPerView: 1,
+                        loop: true
+                    }
+                }
+            });
+        });
+    </script>
+<?php endif; ?>

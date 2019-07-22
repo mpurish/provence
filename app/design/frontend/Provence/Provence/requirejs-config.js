@@ -5,7 +5,9 @@ var config = {
             'colorpicker': 'js/vendor/jquery.wheelcolorpicker.min',
             'constructor': 'js/constructor',
             'bodyScrollLock': 'js/vendor/bodyScrollLock.min',
-            'swiper': 'js/vendor/swiper.min'
+            'swiper': 'js/vendor/swiper.min',
+            'instafeed': 'js/vendor/instafeed.min',
+            'home': 'js/home'
         }
     },
     shim: {
@@ -21,6 +23,11 @@ var config = {
             deps: ['jquery', 'colorpicker']
 
         },
-        'swiper': {}
+        'swiper': {},
+        'instafeed': {},
+        'home': {
+            deps: ['jquery', 'swiper', 'instafeed']
+
+        }
     }
 };
