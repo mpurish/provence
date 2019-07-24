@@ -258,10 +258,35 @@
         border-radius: 5px 5px 0 0;
       }
 
-      ul li .qs-option-info .qs-option-price {
-        color: #333;
-        font-weight: 400;
+      ul li .qs-option-info {
+        .qs-option-price {
+          color: #333;
+          font-weight: 400;
+        }
+
+        .qs-option-reviews {
+          text-transform: none;
+        }
+
+        .product-reviews-summary .rating-summary {
+          margin: -15px 0 0;
+        }
+
+        .rating-summary .rating-result > span:before,
+        .rating-summary .rating-result:before {
+          font-size: 22px;
+          letter-spacing: -8px;
+        }
+
+        .product-reviews-summary .rating-summary .rating-result {
+          width: 73px;
+        }
+
+        .reviews-actions {
+          padding-left: 25px;
+        }
       }
+
     }
 
     .suggest,
@@ -410,8 +435,24 @@
             border-bottom: 1px solid #ccc;
           }
 
-          .count {
-            font-weight: 400;
+          .count, .count + span {
+            display: none;
+          }
+
+          .count--placeholder {
+            &:before {
+              content: attr(data-qty)' товаров в корзине';
+            }
+
+            &[data-qty$="1"]:before {
+              content: attr(data-qty)' товар в корзине';
+            }
+
+            &[data-qty$="2"]:before,
+            &[data-qty$="3"]:before,
+            &[data-qty$="4"]:before {
+              content: attr(data-qty)' товара в корзине';
+            }
           }
         }
 
@@ -1558,6 +1599,38 @@
 
   .block-search {
     z-index: 11;
+
+    .minisearch {
+      .field.search .control {
+        position: relative;
+
+        &:after {
+          content: '';
+          width: 18px;
+          height: 18px;
+          border: 1px solid #3ba8ea;
+          border-right-color: transparent;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: -21.5px 0 0 -9px;
+          border-radius: 50%;
+          opacity: 0;
+          pointer-events: none;
+          -webkit-touch-callout: none;
+          animation: spin 1s linear infinite;
+          transition: opacity 250ms;
+        }
+      }
+
+      &.loading {
+        .field.search .control {
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 
   .products-list, .cart.table-wrapper, .minicart-items, .block-giftregistry-shared-items {

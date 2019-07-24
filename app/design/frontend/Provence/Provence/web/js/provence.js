@@ -18,7 +18,7 @@
             document.body.classList.add('touch--screen-not');
         }
 
-        $(document).on('blur', '#product_addtocart_form .qty, .minicart-items .item-qty, #shopping-cart-table .input-text.qty', function () {
+        $(document).on('blur', '#product_addtocart_form .qty, .minicart-items .item-qty, #shopping-cart-table .input-text.qty, .wishlist .input-text.qty', function () {
             var $this = $(this);
             if(isNaN($this.val())) {
                 $this.val(1);
