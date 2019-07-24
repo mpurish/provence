@@ -24,7 +24,7 @@ $uniqueKey = $block->getUniqueKey();
         <div class="swiper-wrapper">
             <?php $t_qty = 0; ?>
             <?php foreach ($_testimonialCollection as $testimonial): ?>
-                <?php if($block->escapeHtml($testimonial->getRating()) === '100' and strpos($testimonial->getTestimonialContent(), '<iframe') === false): ?>
+                <?php if($block->escapeHtml($testimonial->getRating()) === '100' and strpos($testimonial->getTestimonialContent(), 'youtu') === false): ?>
                     <div class="swiper-slide yereone-testimonial-item">
 
                         <?php if ($block->showTitle()): ?>
@@ -47,7 +47,7 @@ $uniqueKey = $block->getUniqueKey();
                         <?php endif; ?>
                         <div class="testimonials--slider-name-city">
                             <?php if ($block->showAuthor()): ?>
-                                <div class="yereone-testimonial-author smile--<?php echo rand(0, 6); ?>"><span><?php echo $block->escapeHtml(__($testimonial->getAuthor())); ?></span></div>
+                                <div class="yereone-testimonial-author smile--<?php echo rand(1, 6); ?>"><span><?php echo $block->escapeHtml(__($testimonial->getAuthor())); ?></span></div>
                             <?php endif; ?>
                             <?php if ($block->showCity() || $block->showCreationTime()): ?>
                                 <div class="yereone-testimonial-meta">

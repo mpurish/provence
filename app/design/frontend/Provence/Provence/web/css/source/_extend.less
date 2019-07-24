@@ -23,6 +23,14 @@
     letter-spacing: .02em;
   }
 
+  strong, b {
+    font-weight: 400;
+  }
+
+  em, i {
+    font-style: normal;
+  }
+
   a {
     &:active {
       color: #3ba9ea;
@@ -1390,6 +1398,7 @@
     }
 
     .product-item-link {
+      display: block;
       margin: 0 10px 0 0;
       text-decoration: none !important;
       transition: color .3s;
@@ -1860,6 +1869,9 @@
     }
   }
 
+  .product-item .price-box .price {
+    font-weight: 400;
+  }
 }
 
 //@screen__xs: 480px
@@ -1905,7 +1917,7 @@
 
   a.logo,
   .main--menu-dropdown-mobile {
-    display: none;
+    display: none !important;
   }
 
   .page-header {
@@ -1992,7 +2004,8 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 10;
+    //z-index: 10;
+    z-index: 4;
   }
 
   .nav-sections-items {
