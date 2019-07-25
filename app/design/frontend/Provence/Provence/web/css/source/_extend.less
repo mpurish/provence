@@ -441,17 +441,17 @@
 
           .count--placeholder {
             &:before {
-              content: attr(data-qty)' товаров в корзине';
+              content: attr(data-qty)' продуктов в корзине';
             }
 
             &[data-qty$="1"]:before {
-              content: attr(data-qty)' товар в корзине';
+              content: attr(data-qty)' продукт в корзине';
             }
 
             &[data-qty$="2"]:before,
             &[data-qty$="3"]:before,
             &[data-qty$="4"]:before {
-              content: attr(data-qty)' товара в корзине';
+              content: attr(data-qty)' продукта в корзине';
             }
           }
         }
@@ -1801,6 +1801,7 @@
       .dotted {
         white-space: nowrap;
         border-bottom: 1px dotted;
+        cursor: pointer;
       }
     }
 

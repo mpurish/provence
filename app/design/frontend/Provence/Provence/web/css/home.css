@@ -238,6 +238,43 @@
     padding: 0 20px;
     overflow: hidden;
     max-height: 80px;
+    position: relative;
+}
+
+.ig--caption:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    height: 20px;
+    width: 150px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 40px, rgba(255, 255, 255, 0) 100%);
+}
+
+
+.ig--caption:after {
+    content: "\e924";
+    font-family: 'icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #3ba8ea;
+    font-size: 10px;
+    position: absolute;
+    bottom: 3px;
+    right: 20px;
+    z-index: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 400ms ease-in-out;
+}
+
+.ig--caption:hover:after {
+    transform: translate3d(5px, 0, 0);
 }
 
 .swiper--home-ig-pagination,
