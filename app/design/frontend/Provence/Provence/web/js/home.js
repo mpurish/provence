@@ -21,7 +21,7 @@ require(['jquery', 'swiper', 'instafeed'], function($, Swiper, Instafeed) {
             accessToken: '1557371919.1677ed0.bc2ead7e127a4158a44aac04a24fde87',
             resolution: 'low_resolution',
             sortBy: 'most-recent',
-            limit: 7,
+            limit: 15,
             template: '<div class="swiper-slide"><a href="{{link}}" target="_blank"><span class="ig--img"><img src="{{image}}" /></span><span class="ig--location">{{location}}</span><span class="ig--caption">{{caption}}</span></a></div>',
             filter: function(image) {
                 return image.tags.indexOf('салоншторпрованскиев') >= 0;
