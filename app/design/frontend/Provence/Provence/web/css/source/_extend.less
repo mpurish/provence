@@ -1434,6 +1434,7 @@
   .product-item--name-price {
     display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
 
     .product-item-name {
       margin: 0;
@@ -1463,6 +1464,29 @@
       .price {
         font-weight: 400;
         color: #333;
+      }
+    }
+
+    .product-reviews-summary {
+      order: 1;
+      width: 100%;
+      margin: -25px 0 0;
+
+      .rating-summary {
+        left: auto;
+        margin: 0 auto;
+        padding-right: 5px;
+
+        .rating-result {
+          width: 90px;
+
+          &:before,
+          span:before {
+            font-size: 25px;
+            line-height: 25px;
+            letter-spacing: -8px;
+          }
+        }
       }
     }
   }
@@ -3076,7 +3100,7 @@
     .products-grid {
       .product-item {
         width: 100%;
-        margin: 0 0 10px;
+        margin: 0 0 20px;
       }
     }
   }
