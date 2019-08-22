@@ -2724,7 +2724,7 @@
 
   .nav-open .nav-sections {
     box-shadow: 0 0 2px 0.5px rgba(21, 21, 21, 0.05), 0 1px 5px 0 rgba(21, 21, 21, 0.15);
-    background: linear-gradient(to bottom, rgb(244, 250, 253) 0%, rgb(244, 250, 253) 60px, #fff 60px);
+    background: linear-gradient(to bottom, rgb(244, 250, 253) 0%, rgb(244, 250, 253) 240px, #fff 240px);
     padding-top: 20px;
     box-sizing: border-box;
     overflow-y: scroll;
@@ -2748,7 +2748,7 @@
       left: 0;
       right: 0;
       top: 40px;
-      height: 20px;
+      height: 40px;
       background: #fff;
     }
   }
@@ -2801,6 +2801,7 @@
 
   .nav-sections-item-content {
     padding: 0;
+    background: #fff;
   }
 
   .navigation {
@@ -2973,6 +2974,24 @@
     .header--location {
       margin: 0;
       color: #f50;
+
+      &:after {
+        content: "\e904";
+        font-family: 'icons' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 1.2em;
+        position: absolute;
+        left: 1px;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
     }
 
     .header--contact {
