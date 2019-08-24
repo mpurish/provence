@@ -95,6 +95,26 @@
     font-weight: 400;
   }
 
+  .search--qty {
+    &:after {
+      content: ' продуктов';
+    }
+
+    &[data-qty$="1"] {
+      &:after {
+        content: ' продукт';
+      }
+    }
+
+    &[data-qty$="2"],
+    &[data-qty$="3"],
+    &[data-qty$="4"] {
+      &:after {
+        content: ' продукта';
+      }
+    }
+  }
+
   .field-tooltip {
 
     .field-tooltip-action {
@@ -2450,6 +2470,15 @@
     order: 1;
     width: 40%;
   }
+
+  .page-products.page-layout-1column .products-grid .product-item {
+    width: ~'calc((100% - 40px) / 3)';
+    margin-left: 20px;
+
+    &:nth-child(3n + 1) {
+      margin-left: 0;
+    }
+  }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
@@ -2529,6 +2558,19 @@
 
   .header--location {
     display: inline;
+  }
+
+  .page-products.page-layout-1column .products-grid .product-item {
+    width: ~'calc(25% - 15px)';
+    margin-left: 20px;
+
+    &:nth-child(3n + 1) {
+      margin-left: 20px;
+    }
+
+    &:nth-child(4n + 1) {
+      margin-left: 0;
+    }
   }
 }
 
@@ -3071,10 +3113,16 @@
     .pages {
       order: 5;
       margin: 5px auto;
+      width: 100%;
     }
 
     .sorter {
       margin-right: 55px;
+
+      .catalogsearch-advanced-result & {
+        margin-right: 0;
+        margin-left: auto;
+      }
     }
   }
 
@@ -3111,6 +3159,10 @@
     .filters--opened & {
       margin-right: calc(~'100% - 34px');
       margin-left: calc(~'-100% - 34px');
+    }
+
+    .catalogsearch-advanced-result & {
+      display: none;
     }
   }
 
