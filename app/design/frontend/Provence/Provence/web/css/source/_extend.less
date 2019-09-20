@@ -1033,6 +1033,7 @@
     }
   }
 
+  .cms-new-products,
   .form-wishlist-items,
   .page-products {
     .product-image-container {
@@ -1462,7 +1463,7 @@
   .product-item--name-price {
     display: flex;
     align-items: flex-start;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
 
     .product-item-name {
       margin: 0;
@@ -1483,6 +1484,7 @@
         font-style: normal;
         color: #aaa;
         font-size: .9em;
+        margin-top: .5em;
       }
     }
 
@@ -1496,9 +1498,13 @@
     }
 
     .product-reviews-summary {
-      order: 1;
+      //order: 1;
       width: 100%;
-      margin: -25px 0 0;
+      //margin: -25px 0 0;
+      margin: 0;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
 
       .rating-summary {
         left: auto;
@@ -1999,6 +2005,10 @@
   .product-item .price-box .price {
     font-weight: 400;
   }
+
+  .block.widget .product-item-info {
+    position: relative;
+  }
 }
 
 //@screen__xs: 480px
@@ -2213,12 +2223,33 @@
         }
       }
 
-      .li--works {
+      .li--catalogue {
         position: static;
 
         .main--menu-submenu {
           left: auto;
           right: 0;
+        }
+      }
+
+      .li--works {
+        position: static;
+
+        .main--menu-submenu {
+          width: calc(100% - 24px);
+        }
+
+        .block--2 {
+          font-size: .9em;
+          line-height: 1.6;
+
+          li {
+            white-space: normal;
+
+            a {
+              white-space: nowrap;
+            }
+          }
         }
       }
     }
@@ -2265,9 +2296,9 @@
       }
     }
 
-    .li--catalogue,
+    .li--works,
     .li--about-us,
-    .li--delivery {
+    .li--design {
       order: 0;
     }
 
@@ -2280,7 +2311,7 @@
       }
     }
 
-    .li--works,
+    .li--catalogue,
     .li--services,
     .li--reviews {
       order: 2;

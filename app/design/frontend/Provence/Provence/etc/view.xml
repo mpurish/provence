@@ -34,6 +34,10 @@
                 <width>300</width>
                 <height>278</height>
             </image>
+            <image id="new_products_content_widget_grid" type="small_image">
+                <width>300</width>
+                <height>278</height>
+            </image>
         </images>
     </media>
 </view>
