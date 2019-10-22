@@ -6,6 +6,7 @@
 @import '_forms_extend.less';
 @import '_cms.less';
 @import '_blog.less';
+@import '_module.less';
 
 @blue: #3ba9ea;
 @green: #A8CDB4;
@@ -592,6 +593,16 @@
     .item-qty {
       border-radius: 5px;
       color: #666
+    }
+
+    .product-image-container {
+      margin-right: 10px;
+      width: 78px !important;
+
+      img {
+        width: 78px !important;
+        height: auto !important;
+      }
     }
   }
 
@@ -2018,6 +2029,10 @@
 //@screen__xl: 1440px
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  .login-container .fieldset > .field > .control {
+    width: 74.2%;
+  }
 
   .fieldset > .field > .label,
   .fieldset > .fields > .field > .label {
