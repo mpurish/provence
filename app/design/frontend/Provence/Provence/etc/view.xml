@@ -13,6 +13,15 @@
                 <height>278</height>
             </image>
             <image id="swatch_image" type="swatch_image">
+                <width>2000</width>
+                <height>2000</height>
+                <constrain>true</constrain>
+                <aspect_ratio>true</aspect_ratio>
+                <frame>false</frame>
+            </image>
+            <image id="product_swatch_image_small" type="swatch_image">
+                <!--<width>90</width>-->
+                <!--<height>90</height>-->
                 <width>40</width>
                 <height>80</height>
                 <aspect_ratio>true</aspect_ratio>
@@ -108,10 +117,6 @@
             <image id="product_swatch_image_medium" type="image">
                 <width>300</width>
                 <height>278</height>
-            </image>
-            <image id="product_swatch_image_small" type="thumbnail">
-                <width>90</width>
-                <height>90</height>
             </image>
             <image id="product_page_main_image" type="image">
                 <width>700</width>

@@ -40,7 +40,8 @@
                     <?php $productCollection = $block->getProductCollection();
                     foreach ($productCollection as $product) {
                         $image = $block->getImage($product, 'swatch_image');
-                        echo '<option style="background-image: url(' . $image->getImageUrl() . ')" value="' . $product->getSku() . '" data-img="' . $block->getMediaBaseUrl() . 'catalog/product'. $product->getData('swatch_image') . '" data-scale="' . $product->getData('room_constructor') . '">' . $product->getSku() . ' ' . $product->getName() . '</option>';
+                        $imageS = $block->getImage($product, 'product_swatch_image_small');
+                        echo '<option style="background-image: url(' . $imageS->getImageUrl() . ')" value="' . $product->getSku() . '" data-img="' . $image->getImageUrl() . '" data-scale="' . $product->getData('room_constructor') . '">' . $product->getSku() . ' ' . $product->getName() . '</option>';
                     }
                     ?>
                 </select>
