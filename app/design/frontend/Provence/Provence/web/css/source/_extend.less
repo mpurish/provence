@@ -96,29 +96,29 @@
     font-weight: 400;
   }
 
-  .search--qty {
-    &[data-qty$="1"] {
-      &:after {
-        content: ' продукт';
-      }
-    }
-
-    &[data-qty$="2"],
-    &[data-qty$="3"],
-    &[data-qty$="4"] {
-      &:after {
-        content: ' продукта';
-      }
-    }
-
-    &[data-qty$="11"],
-    &[data-qty$="12"],
-    &[data-qty$="13"],
-    &[data-qty$="14"],
-    &:after {
-      content: ' продуктов';
-    }
-  }
+  //.search--qty {
+  //  &[data-qty$="1"] {
+  //    &:after {
+  //      content: ' продукт';
+  //    }
+  //  }
+  //
+  //  &[data-qty$="2"],
+  //  &[data-qty$="3"],
+  //  &[data-qty$="4"] {
+  //    &:after {
+  //      content: ' продукта';
+  //    }
+  //  }
+  //
+  //  &[data-qty$="11"],
+  //  &[data-qty$="12"],
+  //  &[data-qty$="13"],
+  //  &[data-qty$="14"],
+  //  &:after {
+  //    content: ' продуктов';
+  //  }
+  //}
 
   .field-tooltip {
 
@@ -465,25 +465,25 @@
             display: none;
           }
 
-          .count--placeholder {
-            &[data-qty$="1"]:before {
-              content: attr(data-qty)' продукт в корзине';
-            }
-
-            &[data-qty$="2"]:before,
-            &[data-qty$="3"]:before,
-            &[data-qty$="4"]:before {
-              content: attr(data-qty)' продукта в корзине';
-            }
-
-            &[data-qty$="11"]:before,
-            &[data-qty$="12"]:before,
-            &[data-qty$="13"]:before,
-            &[data-qty$="14"]:before,
-            &:before {
-              content: attr(data-qty)' продуктов в корзине';
-            }
-          }
+          //.count--placeholder {
+          //  &[data-qty$="1"]:before {
+          //    content: attr(data-qty)' продукт в корзине';
+          //  }
+          //
+          //  &[data-qty$="2"]:before,
+          //  &[data-qty$="3"]:before,
+          //  &[data-qty$="4"]:before {
+          //    content: attr(data-qty)' продукта в корзине';
+          //  }
+          //
+          //  &[data-qty$="11"]:before,
+          //  &[data-qty$="12"]:before,
+          //  &[data-qty$="13"]:before,
+          //  &[data-qty$="14"]:before,
+          //  &:before {
+          //    content: attr(data-qty)' продуктов в корзине';
+          //  }
+          //}
         }
 
         & > .actions {
@@ -506,6 +506,19 @@
 
           & > .secondary {
             margin: -20px 0 0;
+          }
+        }
+
+        .product-image-container {
+          margin-right: 10px;
+          width: 78px !important;
+          border: none;
+          min-width: 0;
+          border-radius: 0;
+
+          img {
+            width: 78px !important;
+            height: auto !important;
           }
         }
       }
@@ -598,6 +611,9 @@
     .product-image-container {
       margin-right: 10px;
       width: 78px !important;
+      border: none;
+      min-width: 0;
+      border-radius: 0;
 
       img {
         width: 78px !important;
