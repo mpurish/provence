@@ -2,7 +2,7 @@
 
   .mpblog-post-index, .mpblog-category-view {
 
-    .mp-blog-rss {
+    .mp-blog-rss, .mp-footer {
       display: none;
     }
     .column.main {
@@ -48,6 +48,14 @@
 
           }
         }
+      }
+
+      &:after {
+        content: '';
+        height: 100%;
+        width: 1px;
+        display: block;
+        margin: 0 -1px 0 auto;
       }
     }
 

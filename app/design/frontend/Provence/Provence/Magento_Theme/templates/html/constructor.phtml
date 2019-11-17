@@ -12,6 +12,7 @@
         <img src="<?php echo $this->getViewFileUrl('images/constructor/rendering.jpg'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/wall-bg.jpg'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/curtains-bg.jpg'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/curtains-bottom-bg.jpg'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/lampshade-bg.jpg'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/lampshade-inner-bg.jpg'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/sofa-bg.jpg'); ?>" />
@@ -22,6 +23,7 @@
         <img src="<?php echo $this->getViewFileUrl('images/constructor/small-pillow-bg.jpg'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/wall-mask.png'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/curtains-mask.png'); ?>" />
+        <img src="<?php echo $this->getViewFileUrl('images/constructor/curtains-bottom-mask.png'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/lampshade-mask.png'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/lampshade-inner-mask.png'); ?>" />
         <img src="<?php echo $this->getViewFileUrl('images/constructor/sofa-mask.png'); ?>" />
@@ -45,6 +47,20 @@
                     }
                     ?>
                 </select>
+                <div class="fabrics--colour">
+                    или цвета:
+                    <span class="c--colour">
+                        <span class="construct--control control--colour" data-obj="curtains"></span>
+                        <input type="text" class="constructor--color-picker-input" id="color-picker-curtains1" data-wcp-format="css" data-wcp-preview="true" />
+                        <input type="color" class="constructor--color-picker-input-mobile" value="#ffffff" />
+                    </span>
+                    <span class="c--colour control--colour1">
+                        <span class="construct--control control--colour" data-obj="curtainsbottom"></span>
+                        <input type="text" class="constructor--color-picker-input" id="color-picker-curtains2" data-wcp-format="css" data-wcp-preview="true" />
+                        <input type="color" class="constructor--color-picker-input-mobile" value="#ffffff" />
+                    </span>
+                    <span class="c--colour-reset"></span>
+                </div>
             </li>
             <li class="colour--select">
                 <span class="construct--control control--wall" data-obj="wall">
@@ -187,6 +203,7 @@
         <div class="construct-scene">
             <div class="wall" data-bg="<?php echo $this->getViewFileUrl('images/constructor/wall-bg.jpg'); ?>"></div>
             <div class="curtains" data-bg="<?php echo $this->getViewFileUrl('images/constructor/curtains-bg.jpg'); ?>" data-size="270"></div>
+            <div class="curtainsbottom" data-bg="<?php echo $this->getViewFileUrl('images/constructor/curtains-bottom-bg.jpg'); ?>" data-size="270"></div>
             <div class="ficus"></div>
             <div class="lampshade" data-bg="<?php echo $this->getViewFileUrl('images/constructor/lampshade-bg.jpg'); ?>" data-size="45"></div>
             <div class="lampshade-inner" data-bg="<?php echo $this->getViewFileUrl('images/constructor/lampshade-inner-bg.jpg'); ?>" data-size="45"></div>

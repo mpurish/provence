@@ -35,10 +35,10 @@ require(['jquery', 'colorpicker'], function($, wheelColorPicker) {
         });
 
         function setRoomParams() {
-            var fabrics = '', wall, sofa, lampshade, blanket;
+            var fabrics = '', wall, sofa, lampshade, blanket, curtains, curtainsB;
 
             if($.cookieStorage.isEmpty('roomconst')) {
-                $.cookieStorage.set('roomconst', {'wall': 'ffffff', 'sofa': 'ffffff', 'lampshade': 'ffffff', 'blanket': 'ffffff'});
+                $.cookieStorage.set('roomconst', {'wall': 'ffffff', 'sofa': 'ffffff', 'lampshade': 'ffffff', 'blanket': 'ffffff', 'curtains': 'ffffff', 'curtainsbottom': 'ffffff'});
             }
             var currentCookie = $.cookieStorage.get('roomconst');
             if(currentCookie['fabrics']) {
@@ -48,6 +48,8 @@ require(['jquery', 'colorpicker'], function($, wheelColorPicker) {
             sofa = currentCookie['sofa'];
             lampshade = currentCookie['lampshade'];
             blanket = currentCookie['blanket'];
+            curtains = currentCookie['curtains'];
+            curtainsB = currentCookie['curtainsbottom'];
 
             if(location.search) {
                 if(getParameterByName('fabrics')) {
@@ -70,10 +72,22 @@ require(['jquery', 'colorpicker'], function($, wheelColorPicker) {
                     blanket = getParameterByName('blanket');
                     $.cookieStorage.set('roomconst.blanket', blanket);
                 }
+                if(getParameterByName('curtains')) {
+                    curtains = getParameterByName('curtains');
+                    $.cookieStorage.set('roomconst.curtains', curtains);
+                }
+                if(getParameterByName('curtainsbottom')) {
+                    curtainsB = getParameterByName('curtainsbottom');
+                    $.cookieStorage.set('roomconst.curtainsbottom', curtainsB);
+                }
             }
 
             if(fabrics !== '') {
                 fSelect.set(fabrics);
+            }
+            else if(curtains !== 'ffffff' || curtainsB !== 'ffffff') {
+                $('#color-picker-curtains1').wheelColorPicker('value', '#' + curtains).next('.constructor--color-picker-input-mobile').val('#' + curtains).trigger('change');
+                $('#color-picker-curtains2').wheelColorPicker('value', '#' + curtainsB).next('.constructor--color-picker-input-mobile').val('#' + curtainsB).trigger('change');
             }
 
             $('#color-picker-wall').wheelColorPicker('value', '#' + wall).next('.constructor--color-picker-input-mobile').val('#' + wall).trigger('change');
@@ -99,10 +113,32 @@ require(['jquery', 'colorpicker'], function($, wheelColorPicker) {
             $('.construct-scene').find('.' + target).css('background-color', $this.wheelColorPicker('getValue', 'css'));
             $this.next('.constructor--color-picker-input-mobile').val($this.wheelColorPicker('getValue', 'css'));
 
-            if (history.pushState) {
-                var newurl = updateUrlParameter(target, $this.wheelColorPicker('getValue', 'hex'));
-                window.history.pushState({path:newurl},'',newurl);
-                $.cookieStorage.set('roomconst.' + target, $this.wheelColorPicker('getValue', 'hex'));
+            if($this.parent().hasClass('c--colour')) {
+                var $c = $('.curtains');
+                $c.css({
+                    'background-image': 'url('  + $c.data('bg') + ')',
+                    'background-size': '100% 100%',
+                    'background-repeat': 'no-repeat'
+                });
+
+                if($this.parent().hasClass('control--colour1')) {
+                    $c.addClass('curtains--colour');
+                }
+
+                if (history.pushState) {
+                    var newurl = updateUrlParameter(target, $this.wheelColorPicker('getValue', 'hex'));
+                    newurl = updateUrlParameter('fabrics', '', newurl);
+                    window.history.pushState({path:newurl},'',newurl);
+                    $.cookieStorage.set('roomconst.' + target, $this.wheelColorPicker('getValue', 'hex'));
+                    $.cookieStorage.set('roomconst.fabrics', '');
+                }
+            }
+            else {
+                if (history.pushState) {
+                    var newurl = updateUrlParameter(target, $this.wheelColorPicker('getValue', 'hex'));
+                    window.history.pushState({path:newurl},'',newurl);
+                    $.cookieStorage.set('roomconst.' + target, $this.wheelColorPicker('getValue', 'hex'));
+                }
             }
         });
 
@@ -112,10 +148,44 @@ require(['jquery', 'colorpicker'], function($, wheelColorPicker) {
             $('.construct-scene').find('.' + target).css('background-color', $this.val());
             $this.prev('.constructor--color-picker-input').wheelColorPicker('value', $this.val());
 
+            if($this.parent().hasClass('c--colour')) {
+                var $c = $('.curtains');
+                $c.css({
+                    'background-image': 'url('  + $c.data('bg') + ')',
+                    'background-size': '100% 100%',
+                    'background-repeat': 'no-repeat'
+                });
+
+                if($this.parent().hasClass('control--colour1')) {
+                    $c.addClass('curtains--colour');
+                }
+
+                if (history.pushState) {
+                    var newurl = updateUrlParameter(target, $this.wheelColorPicker('getValue', 'hex'));
+                    newurl = updateUrlParameter('fabrics', '', newurl);
+                    window.history.pushState({path:newurl},'',newurl);
+                    $.cookieStorage.set('roomconst.' + target, $this.wheelColorPicker('getValue', 'hex'));
+                    $.cookieStorage.set('roomconst.fabrics', '');
+                }
+            }
+            else {
+                if (history.pushState) {
+                    var newurl = updateUrlParameter(target, $this.val().replace('#', ''));
+                    window.history.pushState({path:newurl},'',newurl);
+                    $.cookieStorage.set('roomconst.' + target, $this.val().replace('#', ''));
+                }
+            }
+        });
+
+        $('.c--colour-reset').on('click', function () {
+            $('#color-picker-curtains1, #color-picker-curtains2').wheelColorPicker('value', '#ffffff').next('.constructor--color-picker-input-mobile').val('#ffffff').trigger('change');
+            $('.curtains').removeClass('curtains--colour');
             if (history.pushState) {
-                var newurl = updateUrlParameter(target, $this.val().replace('#', ''));
+                var newurl = updateUrlParameter('curtains', 'ffffff');
+                newurl = updateUrlParameter('curtainsbottom', 'ffffff', newurl);
                 window.history.pushState({path:newurl},'',newurl);
-                $.cookieStorage.set('roomconst.' + target, $this.val().replace('#', ''));
+                $.cookieStorage.set('roomconst.curtains', 'ffffff');
+                $.cookieStorage.set('roomconst.curtainsbotto', 'ffffff');
             }
         });
 
@@ -129,17 +199,22 @@ require(['jquery', 'colorpicker'], function($, wheelColorPicker) {
             var dataimg = $selected.data('img');
             var datascale = $selected.data('scale');
             var $blocks = $('.construct-scene').find('.curtains, .pillow-bottom, .pillow-top, .pillow-small');
-            $blocks.each(function () {
+            $blocks.removeClass('curtains--colour').each(function () {
                 var $this = $(this);
                 $this.css({
+                    'background-color': 'transparent',
                     'background-image': 'url('  + $this.data('bg') + '), url(' + dataimg + ')',
                     'background-size': '100% 100%, auto ' + 10 * datascale / $this.data('size') + '%',
                     'background-repeat': 'no-repeat, repeat'
                 })
             });
 
+            $('#color-picker-curtains1, #color-picker-curtains2').wheelColorPicker('value', '#ffffff').next('.constructor--color-picker-input-mobile').val('#ffffff');
+
             if (history.pushState) {
                 var newurl = updateUrlParameter('fabrics', $selected.val());
+                newurl = updateUrlParameter('curtains', '', newurl);
+                newurl = updateUrlParameter('curtainsbottom', '', newurl);
                 window.history.pushState({path:newurl},'',newurl);
                 $.cookieStorage.set('roomconst.fabrics', $selected.val());
             }

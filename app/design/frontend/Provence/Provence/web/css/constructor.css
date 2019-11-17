@@ -102,6 +102,17 @@
 	mask-image: url(../images/constructor/curtains-mask.png);
 }
 
+.curtainsbottom {
+	opacity: 0;
+	bottom: 127px;
+	left: 137px;
+	width: 965px;
+	height: 323px;
+	background-image: url('../images/constructor/curtains-bottom-bg.jpg');
+	-webkit-mask-image: url(../images/constructor/curtains-bottom-mask.png);
+	mask-image: url(../images/constructor/curtains-bottom-mask.png);
+}
+
 .lampshade {
 	bottom: 818px;
 	right: 0;
@@ -524,6 +535,81 @@ input[type="color"].constructor--color-picker-input-mobile {
 
 .touch--screen-not .construct-controls ul {
 	flex-direction: column;
+}
+
+.c--colour {
+	position: relative;
+	width: 50px;
+	height: 20px;
+}
+
+.c--colour:first-of-type {
+	margin-left: auto;
+}
+
+.control--colour {
+	display: none;
+}
+
+.c--colour input[type="text"].constructor--color-picker-input {
+	right: 0;
+}
+
+.fabrics--colour {
+	display: flex;
+	align-items: center;
+	margin: 1.25em 0 0;
+}
+
+.curtains--colour + .curtainsbottom {
+	opacity: 1;
+}
+
+.touch--screen .c--colour {
+	width: 45px;
+	height: 45px;
+	margin-left: 10px;
+}
+
+.touch--screen .c--colour:first-of-type {
+	margin-left: auto;
+}
+
+.c--colour-reset {
+	position: relative;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	margin-right: -25px;
+	margin-left: 5px;
+}
+
+.c--colour-reset:before,
+.c--colour-reset:after {
+	content: '';
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	width: 2px;
+	height: 13px;
+	background: #ccc;
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.c--colour-reset:after {
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.touch--screen .c--colour-reset {
+	width: 45px;
+	height: 45px;
+	margin: 0 0 0 10px;
+}
+
+.touch--screen .c--colour-reset:before,
+.touch--screen .c--colour-reset:after {
+	height: 18px;
+	top: 50%;
 }
 
 @media (min-width: 375px) {
